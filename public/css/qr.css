@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Elements */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: rgb(20, 20, 20);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+}
+
+p {
+    font-size: 24px;
+    margin: 15px;
+}
+
+/* Flex Classes */
+.center {
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+    text-align: center;
+    width: 400px;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 99%;
+}
+
+/* Classes */
+.button {
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    height: 55px;
+    line-height: 55px;
+    margin: 15px auto;
+    width: 310px;
+}
+
+.buttons {
+    font-size: 22px;
+    margin: 3px auto;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 12px;
+    margin: 35px;
+}
+
+.hidden {
+    display: none;
+}
+
+.icons {
+    font-size: 40px;
+    line-height: 30px;
+    margin: 10px auto 5px auto;
+    width: 310px;
+}
+
+.listen-btn {
+    display: block;
+    margin: 5px 5px;
+    width: 150px;
+}
+
+.pentup-logo {
+    margin: 10px;
+    width: 200px;
+}
+
+.social-icon {
+    height: 40px;
+}
