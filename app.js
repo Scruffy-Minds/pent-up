@@ -16,10 +16,43 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    let title = `Coming Soon`;
-    res.render('index', {title: title});
+    let title = `Pent Up!`;
+    res.render('qr', {
+        title: title
+    });
 });
 
+app.get('/qr', (req, res) => {
+    let title = `Pent Up Links`;
+    res.render('qr', {
+        title: title
+    });
+});
+
+// app.get('/taxes', (req, res) => {
+//     // This code is copy/paste to calculate Sales Tax by address.
+//     // From https://rapidapi.com/TaxProDigital/api/sales-tax-calculator
+//     fetch("https://sales-tax-calculator.p.rapidapi.com/rates", {
+//             "method": "POST",
+//             "headers": {
+//                 "content-type": "application/json",
+//                 "x-rapidapi-host": "sales-tax-calculator.p.rapidapi.com",
+//                 "x-rapidapi-key": "e822d0871bmsh97ca544747a5f59p18d7b6jsnbf0bd5c5987c"
+//             },
+//             "body": {
+//                 "city": "Marysville",
+//                 "state": "WA",
+//                 "street": "8726 45th Dr NE",
+//                 "zip": "98270"
+//             }
+//         })
+//         .then(response => {
+//             console.log(response);
+//         })
+//         .catch(err => {
+//             console.error(err);
+//         });
+// });
 
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();
@@ -29,3 +62,7 @@ app.listen(process.env.PORT || port, function () {
     };
     console.log(`Pent Up! Website up and running, port ${port} on ${startTime.toLocaleDateString("en-US", options)}.`);
 });
+
+
+// color scheme
+// https://colorhunt.co/palette/822a7c7174753f4142e8e8e8
