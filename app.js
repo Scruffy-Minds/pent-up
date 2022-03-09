@@ -29,6 +29,14 @@ app.get('/qr', (req, res) => {
     });
 });
 
+app.get('/press', (req, res) => {
+    let title = `Pent Up! | Press Pack`;
+    res.render('press', {
+        title: title
+    });
+});
+
+
 // app.get('/taxes', (req, res) => {
 //     // This code is copy/paste to calculate Sales Tax by address.
 //     // From https://rapidapi.com/TaxProDigital/api/sales-tax-calculator
