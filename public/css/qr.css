@@ -42,6 +42,12 @@ p {
     width: 400px;
 }
 
+.newsflash {
+    font-size: 1.7vw;
+    margin: 0 auto 15px;
+    width: 310px;
+}
+
 .space-around {
     justify-content: space-around;
 }
