@@ -12,10 +12,18 @@ function gtag() {
     dataLayer.push(arguments);
 }
 
-// display Coming Soon if streaming buttons are clicked
 document.querySelectorAll('.listen-btn').forEach(x => {
     x.addEventListener('click', () => {
-        document.querySelector('#coming-soon').classList.remove('hidden');
+        switch (x.id) {
+            case 'applemusic':
+                window.open('https://music.apple.com/us/artist/pent-up/1613290339', '_blank');
+                break;
+            case 'spotify':
+                window.open('https://open.spotify.com/artist/4WPVheZNfKNT9plPbMUjQU?si=H8N5sgH9Rs-ppkL9vq9_Og', '_blank');
+                break;
+            default:
+                console.log(`Uh oh!`);
+        }
     });
 });
 
