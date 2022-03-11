@@ -71,6 +71,7 @@ p {
     line-height: 55px;
     margin: 15px auto;
     width: 310px;
+    cursor: pointer;
 }
 
 .buttons {
@@ -108,4 +109,5 @@ p {
 
 .social-icon {
     height: 40px;
+    cursor: pointer;
 }
