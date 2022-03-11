@@ -1,13 +1,7 @@
 window.dataLayer = window.dataLayer || [];
 
 const today = new Date();
-// const weblinks = {
-//     website: 'http://www.pentup.band',
-//     reverbnation: 'https://www.reverbnation.com/pentup',
-//     bandcamp: 'https://pentup-rock.bandcamp.com/'
-// };
 const buttons = document.querySelectorAll('.button');
-
 const sites = [
     {name: 'Official Website', id: 'website', url: 'http://www.pentup.band', type: 'website', target: '_self'},
     {name: 'ReverbNation', id: 'reverbnation', url: 'https://www.reverbnation.com/pentup', type: 'website', target: '_blank'},
@@ -64,3 +58,4 @@ document.querySelectorAll('.button, .social-icon').forEach(x => {
 });
 
 document.querySelector('.copyright').innerHTML = `&copy;${today.getFullYear()}, Pent Up! All rights reserved.`;
+document.querySelector('.newsflash').innerHTML = `New single 'Self-Titled' out now on all major streaming services!`;
