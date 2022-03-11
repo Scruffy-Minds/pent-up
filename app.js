@@ -1,5 +1,5 @@
 const port = '3786';
-let siteName = 'Pent Up!'
+const siteName = 'Pent Up!';
 
 require('dotenv').config();
 const path = require('path');
@@ -28,31 +28,6 @@ app.get('/qr', (req, res) => {
         title: title
     });
 });
-
-// app.get('/taxes', (req, res) => {
-//     // This code is copy/paste to calculate Sales Tax by address.
-//     // From https://rapidapi.com/TaxProDigital/api/sales-tax-calculator
-//     fetch("https://sales-tax-calculator.p.rapidapi.com/rates", {
-//             "method": "POST",
-//             "headers": {
-//                 "content-type": "application/json",
-//                 "x-rapidapi-host": "sales-tax-calculator.p.rapidapi.com",
-//                 "x-rapidapi-key": "e822d0871bmsh97ca544747a5f59p18d7b6jsnbf0bd5c5987c"
-//             },
-//             "body": {
-//                 "city": "Marysville",
-//                 "state": "WA",
-//                 "street": "8726 45th Dr NE",
-//                 "zip": "98270"
-//             }
-//         })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
-// });
 
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();
