@@ -75,8 +75,10 @@ p {
 /* Classes */
 .button {
     background-color: #000;
-    border: 1px solid #fff;
+    border: 1px solid;
+    border-color: #d2d5db #bfc3cc #acb2bd;
     border-radius: 10px;
+    box-shadow: 0 1px 3px #3d5c73;
     color: #fff;
     height: 55px;
     line-height: 55px;
