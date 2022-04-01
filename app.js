@@ -18,9 +18,12 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     let title = `Pent Up!`;
-    res.render('qr', {
-        title: title
-    });
+        res.render('qr', {
+            title: title,
+            script: 'qr.js',
+            sites: data.sites,
+            news: data.news
+        });
 });
 
 app.get('/qr', (req, res) => {
