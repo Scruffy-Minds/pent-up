@@ -17,13 +17,7 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    let title = `Pent Up!`;
-        res.render('qr', {
-            title: title,
-            script: 'qr.js',
-            sites: data.sites,
-            news: data.news
-        });
+    res.redirect('/qr');
 });
 
 app.get('/qr', (req, res) => {
