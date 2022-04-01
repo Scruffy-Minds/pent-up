@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-/* Elements */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import url('/css/default.css');
 
 a,
 a:hover,
@@ -15,54 +8,9 @@ a:visited {
     color: inherit;
 }
 
-body {
-    background-color: rgb(20, 20, 20);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-}
-
 p {
     font-size: 24px;
     margin: 15px;
-}
-
-/* Flex Classes */
-.center {
-    justify-content: center;
-}
-
-.column {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: auto;
-}
-
-.container {
-    display: flex;
-    flex-flow: column wrap;
-    margin: auto;
-    text-align: center;
-    width: 400px;
-}
-
-.row {
-    display: flex;
-    flex-flow: row wrap;
-    margin: auto;
-    width: 99%;
-}
-
-.space-around {
-    justify-content: space-around;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.space-evenly {
-    justify-content: space-evenly;
 }
 
 /* Classes */
@@ -98,11 +46,6 @@ p {
     text-align: center;
 }
 
-.copyright {
-    font-size: 12px;
-    margin: 35px;
-}
-
 .hidden {
     display: none !important;
 }
@@ -132,7 +75,7 @@ p {
     position: relative;
     margin: 10px;
     width: 225px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .social-icon {
