@@ -14,7 +14,7 @@
         {"name": "Email", "id": "email", "url": "mailto:info@pentup.band?subject=You have an owl?!", "type": "social", "target": "_self", "alt": "Send Email"},
         {"name": "Deezer", "id": "deezer", "url": "https://www.deezer.com/us/artist/163062427", "type": "streaming", "target": "_blank", "alt": "Listen on Deezer"},
         {"name": "KKBox", "id": "kkbox", "url": "https://www.kkbox.com/sg/sc/artist/44I0ncq2GXe.x0F02EvwI08L-index-1.html", "type": "streaming", "target": "_blank", "alt": "Listen on KKBox"},
-        {"name": "TIDAL", "id": "tidal", "url": "https://store.tidal.com/us/artist/31058116", "type": "streaming", "target": "_blank", "alt": "Listen on Tidal"},
+        {"name": "TIDAL", "id": "tidal", "url": "https://tidal.com/artist/31058116", "type": "streaming", "target": "_blank", "alt": "Listen on Tidal"},
         {"name": "YouTube Music", "id": "youtubemusic", "url": "https://music.youtube.com/channel/UCnoV4k-ia9hzBOOTB06Fs0A", "type": "streaming", "target": "_blank", "alt": "Listen on YouTube Music"}
         ],
     "news": "New single 'Self-Titled' out now on all major streaming services!"
