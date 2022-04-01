@@ -6,6 +6,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
 
@@ -23,11 +24,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/qr', (req, res) => {
-    let title = `Pent Up Links`;
-    res.render('qr', {
-        title: title
-    });
+    const data = require('./public/javascript/qr_data.json');
+    
+    let title = `Pent Up! Post-Pop Indie Emo Punk Rock!`;
+        res.render('qr', {
+            title: title,
+            script: 'qr.js',
+            sites: data.sites,
+            news: data.news
+        });
 });
+
 
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();
@@ -37,7 +44,3 @@ app.listen(process.env.PORT || port, function () {
     };
     console.log(`Pent Up! Website up and running, port ${port} on ${startTime.toLocaleDateString("en-US", options)}.`);
 });
-
-
-// color scheme
-// https://colorhunt.co/palette/822a7c7174753f4142e8e8e8
