@@ -24,14 +24,23 @@ app.get('/qr', (req, res) => {
     const data = require('./public/javascript/qr_data.json');
     
     let title = `Pent Up! Post-Pop Indie Emo Punk Rock!`;
-        res.render('qr', {
-            title: title,
-            script: 'qr.js',
-            sites: data.sites,
-            news: data.news
-        });
+    res.render('qr', {
+        title: title,
+        script: 'qr.js',
+        styles: 'qr.css',
+        sites: data.sites,
+        news: data.news
+    });
 });
 
+app.get('/dates', (req, res) => {
+    let title = `Pent Up! Upcoming show!`;
+    res.render('dates', {
+        title: title,
+        script: 'qr.js',
+        styles: 'dates.css'
+    });
+});
 
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();

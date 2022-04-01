@@ -1,0 +1,9 @@
+@import url('/css/default.css');
+
+.pentup-logo {
+    position: relative;
+    margin: 10px;
+    width: 225px;
+    z-index: 0;
+}
+
