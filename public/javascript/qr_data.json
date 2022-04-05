@@ -1,0 +1,21 @@
+{ 
+    "sites": [
+        {"name": "Apple Music", "id": "applemusic", "url": "https://music.apple.com/us/artist/pent-up/1613290339", "type": "streaming", "target": "_blank", "alt": "Listen on Apple Music"},
+        {"name": "Spotify", "id": "spotify", "url": "https://open.spotify.com/artist/4WPVheZNfKNT9plPbMUjQU?si=H8N5sgH9Rs-ppkL9vq9_Og", "type": "streaming", "target": "_blank", "alt": "Listen on Spotify"},
+        {"name": "Amazon Music", "id": "amazonmusic", "url": "https://music.amazon.com/artists/B09V2K424L/pent-up", "type": "streaming", "target": "_blank", "alt": "Listen on Amazon Music"},
+        {"name": "Official Website", "id": "website", "url": "http://www.pentup.band", "type": "website", "target": "_self", "alt": "Official Pent Up! Website"},
+        {"name": "Upcoming Show Dates", "id": "upcomingdates", "url": "/dates", "type": "website", "target": "_self", "alt": "Upcoming Dates"},
+        {"name": "Bandcamp", "id": "bandcamp", "url": "https://pentup-rock.bandcamp.com/", "type": "website", "target": "_blank"},
+        {"name": "ReverbNation", "id": "reverbnation", "url": "https://www.reverbnation.com/pentup", "type": "website", "target": "_blank"},
+        {"name": "Facebook", "id": "facebook", "url": "https://www.facebook.com/pentup.band/", "type": "social", "target": "_blank"},
+        {"name": "Instagram", "id": "instagram", "url": "https://www.instagram.com/pent_up_band/", "type": "social", "target": "_blank"},
+        {"name": "Twitter", "id": "twitter", "url": "https://twitter.com/PentUpRock", "type": "social", "target": "_blank"},
+        {"name": "YouTube", "id": "youtube", "url": "https://www.youtube.com/channel/UCHd5r2W_8tvglPx4LJ4yKdA", "type": "social", "target": "_blank"},
+        {"name": "Email", "id": "email", "url": "mailto:info@pentup.band?subject=You have an owl?!", "type": "social", "target": "_self", "alt": "Send Email"},
+        {"name": "Deezer", "id": "deezer", "url": "https://www.deezer.com/us/artist/163062427", "type": "streaming", "target": "_blank", "alt": "Listen on Deezer"},
+        {"name": "KKBox", "id": "kkbox", "url": "https://www.kkbox.com/sg/sc/artist/44I0ncq2GXe.x0F02EvwI08L-index-1.html", "type": "streaming", "target": "_blank", "alt": "Listen on KKBox"},
+        {"name": "TIDAL", "id": "tidal", "url": "https://tidal.com/artist/31058116", "type": "streaming", "target": "_blank", "alt": "Listen on Tidal"},
+        {"name": "YouTube Music", "id": "youtubemusic", "url": "https://music.youtube.com/channel/UCnoV4k-ia9hzBOOTB06Fs0A", "type": "streaming", "target": "_blank", "alt": "Listen on YouTube Music"}
+        ],
+    "news": "New single 'Self-Titled' out now on all major streaming services!"
+}

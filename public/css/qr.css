@@ -1,21 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('/css/default.css');
 
-/* Elements */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-a {
+a,
+a:hover,
+a:active,
+a:visited {
     text-decoration: none;
-}
-
-body {
-    background-color: rgb(20, 20, 20);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    color: inherit;
 }
 
 p {
@@ -23,54 +13,31 @@ p {
     margin: 15px;
 }
 
-/* Flex Classes */
-.center {
-    justify-content: center;
-}
-
-.column {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: auto;
-}
-
-.container {
-    display: flex;
-    flex-flow: column wrap;
-    margin: auto;
-    text-align: center;
-    width: 400px;
-}
-
-.space-around {
-    justify-content: space-around;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.space-evenly {
-    justify-content: space-evenly;
-}
-
-.row {
-    display: flex;
-    flex-flow: row wrap;
-    margin: auto;
-    width: 99%;
-}
-
 /* Classes */
 .button {
     background-color: #000;
-    border: 1px solid #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, .45)), url("../images/black_glass.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 1px solid;
+    border-color: #e5e7ea #d2d5db #bfc3cc;
     border-radius: 10px;
-    color: #fff;
-    height: 55px;
-    line-height: 55px;
+    box-shadow: 0 0 60px 5px #253847;
+    color: #f7f7f7;
+    cursor: pointer;
+    line-height: 53px;
     margin: 15px auto;
+    text-shadow: 0 0 0 #000;
+    transition: all 0.25s ease-in-out;
     width: 310px;
+}
+
+.button:hover,
+.button:active {
+    border-color: #eeeff2 #dbdee3 #c9ccd3 !important;
+    color: #fff !important;
+    text-shadow: 0 0 10px #555c6a !important;
 }
 
 .buttons {
@@ -79,13 +46,8 @@ p {
     text-align: center;
 }
 
-.copyright {
-    font-size: 12px;
-    margin: 35px;
-}
-
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .icons {
@@ -98,14 +60,35 @@ p {
 .listen-btn {
     display: block;
     margin: 5px 5px;
-    width: 150px;
+    max-width: 150px;
+}
+
+.more {
+    cursor: pointer;
+    display: block;
+    font-size: .75em;
+    margin-top: 5px;
+    text-shadow: 1px 1px 5px #000;
 }
 
 .pentup-logo {
+    position: relative;
     margin: 10px;
-    width: 200px;
+    width: 225px;
+    z-index: 0;
 }
 
 .social-icon {
     height: 40px;
+    cursor: pointer;
+}
+
+.news span {
+    position: relative;
+    font-size: 1.05em;
+    margin: auto;
+    text-shadow: 0 0 0 #000;
+    width: 310px;
+    overflow: hidden;
+    top: -10px;
 }

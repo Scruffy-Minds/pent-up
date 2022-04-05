@@ -1,11 +1,12 @@
 const port = '3786';
-let siteName = 'Pent Up!'
+const siteName = 'Pent Up!';
 
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
 
@@ -16,16 +17,19 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    let title = `Pent Up!`;
-    res.render('qr', {
-        title: title
-    });
+    res.redirect('/qr');
 });
 
 app.get('/qr', (req, res) => {
-    let title = `Pent Up Links`;
+    const data = require('./public/javascript/qr_data.json');
+    
+    let title = `Pent Up! Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
-        title: title
+        title: title,
+        script: 'qr.js',
+        styles: 'qr.css',
+        sites: data.sites,
+        news: data.news
     });
 });
 
@@ -36,31 +40,14 @@ app.get('/press', (req, res) => {
     });
 });
 
-
-// app.get('/taxes', (req, res) => {
-//     // This code is copy/paste to calculate Sales Tax by address.
-//     // From https://rapidapi.com/TaxProDigital/api/sales-tax-calculator
-//     fetch("https://sales-tax-calculator.p.rapidapi.com/rates", {
-//             "method": "POST",
-//             "headers": {
-//                 "content-type": "application/json",
-//                 "x-rapidapi-host": "sales-tax-calculator.p.rapidapi.com",
-//                 "x-rapidapi-key": "e822d0871bmsh97ca544747a5f59p18d7b6jsnbf0bd5c5987c"
-//             },
-//             "body": {
-//                 "city": "Marysville",
-//                 "state": "WA",
-//                 "street": "8726 45th Dr NE",
-//                 "zip": "98270"
-//             }
-//         })
-//         .then(response => {
-//             console.log(response);
-//         })
-//         .catch(err => {
-//             console.error(err);
-//         });
-// });
+app.get('/dates', (req, res) => {
+    let title = `Pent Up! Upcoming show!`;
+    res.render('dates', {
+        title: title,
+        script: 'qr.js',
+        styles: 'dates.css'
+    });
+});
 
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();
@@ -70,7 +57,3 @@ app.listen(process.env.PORT || port, function () {
     };
     console.log(`Pent Up! Website up and running, port ${port} on ${startTime.toLocaleDateString("en-US", options)}.`);
 });
-
-
-// color scheme
-// https://colorhunt.co/palette/822a7c7174753f4142e8e8e8

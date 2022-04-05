@@ -1,74 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/qr.css">
-    <script src="/javascript/qr.js" defer></script>
-    <title><%-title%></title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicons/site.webmanifest">
-    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
-    <meta name="msapplication-TileColor" content="#c191e4">
-    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-</head>
-
+<%- include('partials/head'); -%>
 <body>
+
     <div class="container">
+
         <div class="row space-around">
             <a href="http://www.pentup.band" target="_blank">
                 <img class="pentup-logo" src="/images/pent_up_logo_small.png" alt="Pent Up!">
             </a>
         </div>
+
+        <div class="news row center">
+            <span><%= news %></span>
+        </div>
+
+        <div id="streaming" class="row center">
+            <%const streamers = sites.filter(x => x.type === 'streaming');  streamers.forEach((v, i, a) => {const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
+            <%-`<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="listen-btn button${primary}" src="/images/buttons/${v.id}_btn.png" alt="Listen on ${v.name}"></a>`%><%});%>
+            <span class="more row center">Tap here for more streaming services</span>
+        
+        </div>
+
+        <div id="buttons" class="buttons">
+            <%const websites = sites.filter(x => x.type === 'website'); websites.forEach((v, i, a) => {%>
+            <%- `<a href="${v.url}" target="${v.target}"><div class="button" id="${v.id}"><span>${v.name}</span></div></a>`%><%})%>
+        
+        </div>
+
+        <div id="socials" class="row space-around icons">
+        <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
+            <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
+        
+        </div>
+        <% const thisYear = new Date().getFullYear(); %>
         <div class="row center">
-            <img class="listen-btn" src="/images/buttons/applemusic_btn.png" alt="Listen on Apple Music">
-            <img class="listen-btn" src="/images/buttons/spotify_btn.png" alt="Listen on Spotify">
+            <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
         </div>
-        <div>
-            <p id="coming-soon" class="hidden">Coming soon!</p>
-        </div>
-        <div class="buttons">
-            <a href="http://www.pentup.band" target="_blank">
-                <div id="website" class="button">
-                    <span>Official Website</span>
-                </div>
-            </a>
-            <a href="https://www.reverbnation.com/pentup" target="_blank">
-                <div id="reverbnation" class="button">
-                    <span>ReverbNation</span>
-                </div>
-            </a>
-            <a href="https://pentup-rock.bandcamp.com/" target="_blank">
-                <div id="bandcamp" class="button">
-                    <span>Bandcamp</span>
-                </div>
-            </a>
-        </div>
-        <div class="row space-around icons">
-            <a href="https://www.facebook.com/pentup.band/" target="_blank">
-                <img class="social-icon" src="/images/icons/icon-facebook.png" alt="Facebook">
-            </a>
-            <a href="https://twitter.com/PentUpRock" target="_blank">
-                <img class="social-icon" src="/images/icons/icon-twitter.png" alt="Twitter">
-            </a>
-            <a href="https://www.instagram.com/pent_up_band/" target="_blank">
-                <img class="social-icon" src="/images/icons/icon-instagram.png" alt="Instagram">
-            </a>
-            <a href="https://www.youtube.com/channel/UCHd5r2W_8tvglPx4LJ4yKdA" target="_blank">
-                <img class="social-icon" src="/images/icons/icon-youtube.png" alt="YouTube">
-            </a>
-            <a href="mailto:pent.up.rock@gmail.com?subject=You have an owl?!">
-                <img class="social-icon" src="/images/icons/icon-email.png" alt="Send Email">
-            </a>
-        </div>
-        <div class="row center"><span class="copyright"></span></div>
+
     </div>
 </body>
-
 </html>
