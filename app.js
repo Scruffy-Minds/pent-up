@@ -33,6 +33,13 @@ app.get('/qr', (req, res) => {
     });
 });
 
+app.get('/press', (req, res) => {
+    let title = `Pent Up! | Press Pack`;
+    res.render('press', {
+        title: title
+    });
+});
+
 app.get('/dates', (req, res) => {
     let title = `Pent Up! Upcoming show!`;
     res.render('dates', {

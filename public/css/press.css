@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(20, 20, 20);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.column {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 49%;
+    border: 1px solid white;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    width: 99%;
+    height: 40vh;
+    border: 1px solid white;
+    justify-content: space-around;
+}
+
+img {
+    max-width: 50%;
+    max-height: 350px;
+  }
