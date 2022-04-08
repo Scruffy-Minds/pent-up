@@ -7,14 +7,47 @@
     <div class="container">
 
         <div class="row space-around">
-            <a href="http://www.pentup.band" target="_self">
+            <a href="/" target="_self">
                 <img class="pentup-logo" src="/images/pent_up_logo_small.png" alt="Pent Up!">
             </a>
         </div>
 
-        <div class="row space-around">
-        <a href="https://www.songkick.com/artists/10191154" class="songkick-widget" data-theme="dark" data-detect-style="true" data-background-color="transparent" data-locale="en">Show Dates</a>
+        <div id="shows" class="row center">
+
+            <div id="title" class="row center">
+                <span>Upcoming show dates</span>
+                <img id="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+            </div>
+
+            <div class="headers row space-around">
+                <span>Date</span>
+                <span>Venue</span>
+                <span>Ticket Link</span>
+            </div>
+
+
+            <div id="upcoming-shows" class="column center">
+                <img class="loading" src="/images/loading.gif" alt="..loading...">
+            </div>
+
+            <hr class="hidden">
+
+            <div id="title" class="row center">
+                <span>Past show dates</span>
+                <img id="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+            </div>
+
+            <div class="headers row space-around">
+                <span>Date</span>
+                <span>Venue</span>
+                <span>Ticket Link</span>
+            </div>
+            
+            <div id="past-shows" class="column center">
+            </div>
         </div>
+
+
 
         <div class="row center"><% const thisYear = new Date().getFullYear(); %>
             <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>

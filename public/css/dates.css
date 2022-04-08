@@ -1,9 +1,125 @@
 @import url('/css/default.css');
 
+/* Elements */
+hr {
+    width: 90%;
+    height: 2px;
+    color: #fff;
+    margin: 30px;
+}
+
+/* IDs */
+#songkick {
+    align-self: center;
+    height: 30px;
+    opacity: 0.85;
+}
+
+#title {
+    width: 100%;
+    font-size: 1.05em;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+#title span {
+    display: inline-block;
+    align-self: flex-end;
+    margin-bottom: 3px;
+    margin-right: 13px;
+}
+
+#upcoming-shows,
+#past-shows {
+    width: 100%;
+    font-size: 0.75em;
+}
+
+/* Classes */
+.date,
+.headers span:nth-of-type(1) {
+    width: 27%;
+}
+
+.loading {
+    margin: 50px auto;
+    width: 75px;
+}
+
 .pentup-logo {
-    position: relative;
     margin: 10px;
+    position: relative;
     width: 225px;
     z-index: 0;
 }
 
+.headers {
+    font-size: 0.75em;
+}
+
+.headers span {
+    display: flex;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.headers span:last-child {
+    padding-right: 5px;
+    text-align: right;
+}
+
+.show {
+    border: 1px solid #fff;
+    height: 50px;
+    margin: 4px auto 10px;
+    width: 100%;
+}
+
+.show div {
+    line-height: 22px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.show img {
+    align-self: center;
+}
+
+.ticket,
+.headers span:nth-of-type(3) {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    width: 23%;
+}
+
+.ticket img {
+    color: white;
+    width: 30px;
+}
+
+.venue,
+.headers span:nth-of-type(2) {
+    width: 50%;
+}
+
+.venue div {
+    height: 25px;
+    padding: 0;
+}
+
+.venue span {
+    display: block;
+}
+
+.venue span:first-child {
+    font-size: 1.15em;
+    font-weight: 700;
+}
+
+.venue span:last-child {
+    font-size: 0.85em;
+    font-weight: 300;
+    color: #ccc;
+}

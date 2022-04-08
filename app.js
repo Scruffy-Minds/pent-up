@@ -9,6 +9,7 @@ const ejs = require('ejs');
 const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
+const fetch = require('node-fetch');
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -21,8 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/qr', (req, res) => {
-    const data = require('./public/javascript/qr_data.json');
-    
+    const data = require('./public/javascript/qr_data.json');  
     let title = `Pent Up! Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
         title: title,
@@ -44,9 +44,29 @@ app.get('/dates', (req, res) => {
     let title = `Pent Up! Upcoming show!`;
     res.render('dates', {
         title: title,
-        script: 'qr.js',
+        script: 'dates.js',
         styles: 'dates.css'
     });
+});
+
+app.get('/api/dates', async (req, res) => {
+    try {
+        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
+            .then(res => res.json())
+            .then(data => res.send(data.resultsPage.results));
+    } catch (err) {
+        console.log('error: ', err);
+    }
+});
+
+app.get('/api/pastdates', async (req, res) => {
+    try {
+        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
+            .then(res => res.json())
+            .then(data => res.send(data.resultsPage.results));
+    } catch (err) {
+        console.log('error: ', err);
+    }
 });
 
 app.listen(process.env.PORT || port, function () {
