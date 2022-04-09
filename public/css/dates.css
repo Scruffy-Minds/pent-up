@@ -70,7 +70,7 @@ hr {
 }
 
 .show {
-    height: 55px;
+    height: 45px;
     margin: 4px auto 10px;
     width: 100%;
     border: 1px solid;
@@ -126,4 +126,8 @@ hr {
     font-size: 0.85em;
     font-weight: 300;
     color: #ccc;
+}
+
+.downarrow {
+    line-height: 10px;
 }
