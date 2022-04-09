@@ -54,24 +54,33 @@ body {
 
 /* Classes */
 
-.button {
+.bkg-glass {
     background-color: #000;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, .45)), url("../images/black_glass.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, .65)), url("../images/black_glass.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.glow {
+    box-shadow: 0 0 60px 5px #253847;
+}
+
+.button {
     border: 1px solid;
     border-color: #e5e7ea #d2d5db #bfc3cc;
     border-radius: 10px;
-    box-shadow: 0 0 60px 5px #253847;
     color: #f7f7f7;
     cursor: pointer;
-    line-height: 53px;
+    height: 47px;
+    line-height: 45px;
     margin: 15px auto;
     text-shadow: 0 0 0 #000;
     transition: all 0.25s ease-in-out;
     width: 310px;
 }
+
+/* 1000 x 304 */
 
 .button:hover,
 .button:active {

@@ -2,10 +2,11 @@
 
 /* Elements */
 hr {
-    width: 90%;
-    height: 2px;
-    color: #fff;
-    margin: 30px;
+    border: none;
+    border-top: 8px dotted;
+    color: #3c5b74;
+    margin: 35px;
+    width: 55px;
 }
 
 /* IDs */
@@ -15,14 +16,14 @@ hr {
     opacity: 0.85;
 }
 
-#title {
+.title {
     width: 100%;
     font-size: 1.05em;
     align-self: flex-end;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
-#title span {
+.title span {
     display: inline-block;
     align-self: flex-end;
     margin-bottom: 3px;
@@ -37,7 +38,7 @@ hr {
 
 /* Classes */
 .date,
-.headers span:nth-of-type(1) {
+.show-headers span:nth-of-type(1) {
     width: 27%;
 }
 
@@ -53,26 +54,28 @@ hr {
     z-index: 0;
 }
 
-.headers {
-    font-size: 0.75em;
+.show-headers {
+    font-size: 0.95em;
 }
 
-.headers span {
+.show-headers span {
     display: flex;
     padding-left: 5px;
     text-align: left;
 }
 
-.headers span:last-child {
+.show-headers span:last-child {
     padding-right: 5px;
     text-align: right;
 }
 
 .show {
-    border: 1px solid #fff;
-    height: 50px;
+    height: 55px;
     margin: 4px auto 10px;
     width: 100%;
+    border: 1px solid;
+    border-color: #bfc3cc #d2d5db #e5e7ea;
+    text-shadow: 0 0 0 #000;
 }
 
 .show div {
@@ -85,8 +88,8 @@ hr {
     align-self: center;
 }
 
-.ticket,
-.headers span:nth-of-type(3) {
+.event,
+.show-headers span:nth-of-type(3) {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -94,13 +97,14 @@ hr {
     width: 23%;
 }
 
-.ticket img {
+.event img {
     color: white;
-    width: 30px;
+    width: 20px;
+    opacity: 0.75;
 }
 
 .venue,
-.headers span:nth-of-type(2) {
+.show-headers span:nth-of-type(2) {
     width: 50%;
 }
 

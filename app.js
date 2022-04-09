@@ -41,7 +41,7 @@ app.get('/press', (req, res) => {
 });
 
 app.get('/dates', (req, res) => {
-    let title = `Pent Up! Upcoming show!`;
+    let title = `Pent Up! Upcoming shows!`;
     res.render('dates', {
         title: title,
         script: 'dates.js',
@@ -50,23 +50,42 @@ app.get('/dates', (req, res) => {
 });
 
 app.get('/api/dates', async (req, res) => {
-    try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
-    } catch (err) {
-        console.log('error: ', err);
-    }
+    // try {
+    //     await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
+    //         .then(res => res.json())
+    //         .then(data => res.send(data.resultsPage.results));
+    // } catch (err) {
+    //     console.log('error: ', err);
+    // }
+
+    // When ready to go live, remove this code and un-comment code above
+    // --------------- TEMP CODE
+    const filedata = require('./public/javascript/songkick_calendar.json');
+    const results = filedata.resultsPage.results;
+    setTimeout((() => {
+        res.send(results);
+    }), 1000);
+    // --------------- TEMP CODE
 });
 
 app.get('/api/pastdates', async (req, res) => {
-    try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
-    } catch (err) {
-        console.log('error: ', err);
-    }
+    // try {
+    //     await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
+    //         .then(res => res.json())
+    //         .then(data => res.send(data.resultsPage.results));
+    // } catch (err) {
+    //     console.log('error: ', err);
+    // }
+
+    // When ready to go live, remove this code and un-comment code above
+    // --------------- TEMP CODE
+    const filedata = require('./public/javascript/songkick_gigiography.json');
+    const results = filedata.resultsPage.results;
+    setTimeout((() => {
+        res.send(results);
+    }), 1200);
+    // --------------- TEMP COD
+
 });
 
 app.listen(process.env.PORT || port, function () {
