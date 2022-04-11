@@ -12,65 +12,27 @@
             </a>
         </div>
         
-        <!-- BEGIN SHOWS SECTION -->
         <section id="shows" class="row center">
 
-            <!-- SECTION TITLE  -->
             <div class="title row center">
-                <span>Upcoming shows</span>
-                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png"
-                    alt="Powered by Songkick">
+                <span>Current shows</span>
+                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
             </div>
 
-            <div id="upcoming-shows" class="">
+            <div id="current-shows" class="">
                 <img class="loading" src="/images/loading.gif" alt="..loading...">
             </div>
 
-            <hr>
-            
+            <hr class="hidden">
+
             <div id="past-shows" class="">
-                <img class="loading" src="/images/loading.gif" alt="..loading...">
+
             </div>
-
-
-
-
-            <!-- <div class="event-headers row space-around">
-                <span class="col-date"">Date</span>
-                <span class="col-venue">Venue</span>
-                <span class="col-location">Location</span>
-            </div>
-            <div class="event-tile column glow bkg-glass space-around">
-                    <div class="event-info row space-around">
-                        <span class="col-date event-date">4/04/2022</span>
-                        <span class="col-venue event-venue">Sunset Tavern</span>
-                        <span class="col-location event-location">Seattle, WA</span>
-                    </div>
-                    <div class="event-info extended row space-around hidden">
-                        <span class="col-date event-time">8:00 PM</span>
-                        <span class="col-venue event-address">5433 Ballard Ave NW</span>
-                        <span class="col-location event-zip">98107</span>
-                    </div>
-                    <div class="event-info details row space-between hidden">
-                        <span class="event-age-limit"><img src="/images/icons/age/21.png" alt=""></span>
-                        <span class="event-bands">Pent Up!, Highest of Heels, Juliet Tango</span>
-                        <span class="sk-link"><img src="/images/songkick/sk-badge/sk-badge-pink.png" alt="SongKick"></span>
-                    </div>
-                <div class="toggle-arrow row space-around">
-                    <img src="/images/icons/icon-downarrow.png" style="width: 10px; opacity: .5;" alt="down arrow">
-                </div>
-            </div> -->
-
-
-
-
 
         </section>
 
-
-
         <div class="row center"><% const thisYear = new Date().getFullYear(); %>
-            <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
+            <span class="copyright hidden">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
         </div>
     </div>
 

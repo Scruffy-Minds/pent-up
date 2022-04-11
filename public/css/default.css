@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Special+Elite&display=swap');
 /* Elements */
 * {
     box-sizing: border-box;
@@ -72,6 +71,7 @@ body {
     border-radius: 10px;
     color: #f7f7f7;
     cursor: pointer;
+    font-family: 'Special Elite', sans-serif;
     height: 47px;
     line-height: 45px;
     margin: 15px auto;
@@ -79,8 +79,6 @@ body {
     transition: all 0.25s ease-in-out;
     width: 310px;
 }
-
-/* 1000 x 304 */
 
 .button:hover,
 .button:active {

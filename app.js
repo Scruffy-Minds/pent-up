@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.get('/qr', (req, res) => {
     const data = require('./public/javascript/qr_data.json');  
-    let title = `Pent Up! Post-Pop Indie Emo Punk Rock!`;
+    let title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',
@@ -34,14 +34,14 @@ app.get('/qr', (req, res) => {
 });
 
 app.get('/press', (req, res) => {
-    let title = `Pent Up! | Press Pack`;
+    let title = `Pent Up! | Press Kit`;
     res.render('press', {
         title: title
     });
 });
 
 app.get('/dates', (req, res) => {
-    let title = `Pent Up! Upcoming shows!`;
+    let title = `Pent Up! | Show Dates!`;
     res.render('dates', {
         title: title,
         script: 'dates.js',
@@ -50,54 +50,46 @@ app.get('/dates', (req, res) => {
 });
 
 app.get('/api/dates', async (req, res) => {
-    // try {
-    //     await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
-    //         .then(res => res.json())
-    //         .then(data => res.send(data.resultsPage.results));
-    // } catch (err) {
-    //     console.log('error: ', err);
-    // }
+    // --------------- Disable the follow code when testing to avoid excessive API calls
+    try {
+        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
+            .then(res => res.json())
+            .then(data => res.send(data.resultsPage.results));
+    } catch (err) {
+        console.log('error: ', err);
+    }
 
-    // When ready to go live, remove this code and un-comment code above
-    // --------------- TEMP CODE
-    const filedata = require('./public/javascript/songkick_calendar.json');
-    const results = filedata.resultsPage.results;
-    setTimeout((() => {
-        res.send(results);
-    }), 1000);
-    // --------------- TEMP CODE
+    // --------------- Activate this code when testing to avoid excessive API calls
+    // const filedata = require('./public/javascript/songkick_calendar.json');
+    // const results = filedata.resultsPage.results;
+    // setTimeout((() => {
+    //     res.send(results);
+    // }), 1000);
 });
 
 app.get('/api/pastdates', async (req, res) => {
-    // try {
-    //     await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
-    //         .then(res => res.json())
-    //         .then(data => res.send(data.resultsPage.results));
-    // } catch (err) {
-    //     console.log('error: ', err);
-    // }
+    // --------------- Disable the follow code when testing to avoid excessive API calls
+    try {
+        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
+            .then(res => res.json())
+            .then(data => res.send(data.resultsPage.results));
+    } catch (err) {
+        console.log('error: ', err);
+    }
 
-    // When ready to go live, remove this code and un-comment code above
-    // --------------- TEMP CODE
-    const filedata = require('./public/javascript/songkick_gigiography.json');
-    const results = filedata.resultsPage.results;
-    setTimeout((() => {
-        res.send(results);
-    }), 1200);
-    // --------------- TEMP COD
-
+    // --------------- Enable the follow code when testing to avoid excessive API calls
+    // const filedata = require('./public/javascript/songkick_gigiography.json');
+    // const results = filedata.resultsPage.results;
+    // setTimeout((() => {
+    //     res.send(results);
+    // }), 1200);
 });
 
 app.get('/api/venue-details/:venueId', async (req, res) => {
-    const venueId = req.params.venueId;
-    // `https://api.songkick.com/api/3.0/venues/${venueId}.json?apikey=${process.env.SK_API}`
-
     try {
-        await fetch(`https://api.songkick.com/api/3.0/venues/${venueId}.json?apikey=${process.env.SK_API}`)
+        await fetch(`https://api.songkick.com/api/3.0/venues/${req.params.venueId}.json?apikey=${process.env.SK_API}`)
             .then(res => res.json())
-            .then(data => {
-                res.send(data.resultsPage.results);
-            });
+            .then(data => res.send(data.resultsPage.results));
     } catch (err) {
         console.log('error: ', err);
     }

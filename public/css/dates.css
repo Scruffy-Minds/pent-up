@@ -9,6 +9,12 @@ hr {
     width: 55px;
 }
 
+/* IDs */
+#current-shows,
+#past-shows {
+    width: 100%;
+}
+
 /* Classes */
 .col-date {
     justify-content: left;
@@ -38,6 +44,11 @@ hr {
     align-items: flex-start;
     justify-content: center;
     text-align: center;
+}
+
+.event-address img {
+    height: 15px;
+    opacity: .6;
 }
 
 .event-age-limit {
@@ -78,7 +89,7 @@ hr {
 
 .event-info {
     display: flex;
-    font-size: 0.70em;
+    font-size: 0.79em;
     height: 22px;
     margin: 0;
     overflow: hidden;
@@ -91,15 +102,10 @@ hr {
 .event-tile {
     border-color: #bfc3cc #d2d5db #e5e7ea;
     border: 1px solid;
-    /* height: 103px; */
-    /* height: fit-content !important; */
     margin: 2px auto 10px;
-    /* min-height: 43px; */
-    width: 100%;
     text-shadow: 0 0 0 #000;
+    width: 100%;
 }
-
-
 
 .event-tile div {
     line-height: 22px;
@@ -116,6 +122,13 @@ hr {
     color: #ccc;
 }
 
+.loading {
+    width: 50px;
+}
+
+.noshows {
+    padding: 25px auto !important;
+}
 
 .sk-link {
     margin: 1%;
@@ -142,20 +155,16 @@ hr {
 .title span {
     align-self: flex-end;
     display: inline-block;
+    font-family: 'Special Elite', sans-serif;
     margin: 0 13px 3px 0;
 }
 
 .toggle-arrow {
-    line-height: 10px;
-    margin: 5px auto 4px;
     cursor: pointer;
+    line-height: 15px;
+    margin: 6px auto 6px;
 }
 
-#upcoming-shows,
-#past-shows {
-    width: 100%;
-}
-
-.loading {
-    width: 50px;
+.toggle-arrow img {
+    width: 12px;
 }
