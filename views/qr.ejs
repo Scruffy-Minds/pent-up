@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="row space-around">
-            <a href="http://www.pentup.band" target="_blank">
+            <a href="/" target="_blank">
                 <img class="pentup-logo" src="/images/pent_up_logo_small.png" alt="Pent Up!">
             </a>
         </div>
@@ -17,14 +17,14 @@
 
         <div id="streaming" class="row center">
             <%const streamers = sites.filter(x => x.type === 'streaming');  streamers.forEach((v, i, a) => {const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
-            <%-`<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="listen-btn button${primary}" src="/images/buttons/${v.id}_btn.png" alt="Listen on ${v.name}"></a>`%><%});%>
+            <%-`<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="listen-btn bkg-glass glow button${primary}" src="/images/buttons/${v.id}_btn.png" alt="Listen on ${v.name}"></a>`%><%});%>
             <span class="more row center">Tap here for more streaming services</span>
         
         </div>
 
         <div id="buttons" class="buttons">
             <%const websites = sites.filter(x => x.type === 'website'); websites.forEach((v, i, a) => {%>
-            <%- `<a href="${v.url}" target="${v.target}"><div class="button" id="${v.id}"><span>${v.name}</span></div></a>`%><%})%>
+            <%- `<a href="${v.url}" target="${v.target}"><div class="bkg-glass glow button" id="${v.id}"><span>${v.name}</span></div></a>`%><%})%>
         
         </div>
 

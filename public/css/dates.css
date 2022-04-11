@@ -1,9 +1,170 @@
 @import url('/css/default.css');
 
-.pentup-logo {
-    position: relative;
-    margin: 10px;
-    width: 225px;
-    z-index: 0;
+/* Elements */
+hr {
+    border: none;
+    border-top: 8px dotted;
+    color: #3c5b74;
+    margin: 35px;
+    width: 55px;
 }
 
+/* IDs */
+#current-shows,
+#past-shows {
+    width: 100%;
+}
+
+/* Classes */
+.col-date {
+    justify-content: left;
+    margin: 1%;
+    width: 16%;
+}
+
+.col-venue {
+    margin: 1%;
+    text-align: left;
+    width: 48%;
+}
+
+.col-location {
+    justify-content: right !important;
+    margin: 1%;
+    width: 30%;
+}
+
+.details {
+    margin: 10px auto 5px !important;
+    height: fit-content !important;
+}
+
+.details span {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+
+.event-address img {
+    height: 15px;
+    opacity: .6;
+}
+
+.event-age-limit {
+    justify-content: left;
+    margin: 1%;
+    width: 10%;
+}
+
+.event-age-limit img {
+    height: 25px;
+    margin-top: 3px;
+}
+
+.event-bands {
+    justify-content: center;
+    margin: 1%;
+    width: 74%;
+}
+
+.event-date,
+.event-location {
+    color: #ccc;
+}
+
+.event-headers {
+    display: flex;
+    font-size: 0.70em;
+}
+
+.event-headers span {
+    display: flex;
+    justify-content: left;
+}
+
+.event-headers span:last-child {
+    justify-content: right !important;
+}
+
+.event-info {
+    display: flex;
+    font-size: 0.79em;
+    height: 22px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.event-info span {
+    display: flex;
+}
+
+.event-tile {
+    border-color: #bfc3cc #d2d5db #e5e7ea;
+    border: 1px solid;
+    margin: 2px auto 10px;
+    text-shadow: 0 0 0 #000;
+    width: 100%;
+}
+
+.event-tile div {
+    line-height: 22px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.event-venue {
+    font-size: 1.15em;
+    font-weight: 700;
+}
+
+.extended {
+    color: #ccc;
+}
+
+.loading {
+    width: 50px;
+}
+
+.noshows {
+    padding: 25px auto !important;
+}
+
+.sk-link {
+    margin: 1%;
+    width: 10%;
+}
+
+.sk-link img {
+    height: 25px;
+    margin-top: 3px;
+}
+
+.songkick {
+    align-self: center;
+    height: 30px;
+    opacity: 0.85;
+}
+
+.title {
+    font-size: 1.05em;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.title span {
+    align-self: flex-end;
+    display: inline-block;
+    font-family: 'Special Elite', sans-serif;
+    margin: 0 13px 3px 0;
+}
+
+.toggle-arrow {
+    cursor: pointer;
+    line-height: 15px;
+    margin: 6px auto 6px;
+}
+
+.toggle-arrow img {
+    width: 12px;
+}

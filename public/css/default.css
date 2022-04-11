@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Special+Elite&display=swap');
 /* Elements */
 * {
     box-sizing: border-box;
@@ -30,7 +29,7 @@ body {
     flex-flow: column wrap;
     margin: auto;
     text-align: center;
-    width: 400px;
+    width: 375px;
 }
 
 .row {
@@ -53,7 +52,53 @@ body {
 }
 
 /* Classes */
+
+.bkg-glass {
+    background-color: #000;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, .65)), url("../images/black_glass.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.glow {
+    box-shadow: 0 0 60px 5px #253847;
+}
+
+.button {
+    border: 1px solid;
+    border-color: #e5e7ea #d2d5db #bfc3cc;
+    border-radius: 10px;
+    color: #f7f7f7;
+    cursor: pointer;
+    font-family: 'Special Elite', sans-serif;
+    height: 47px;
+    line-height: 45px;
+    margin: 15px auto;
+    text-shadow: 0 0 0 #000;
+    transition: all 0.25s ease-in-out;
+    width: 310px;
+}
+
+.button:hover,
+.button:active {
+    border-color: #eeeff2 #dbdee3 #c9ccd3 !important;
+    color: #fff !important;
+    text-shadow: 0 0 10px #555c6a !important;
+}
+
 .copyright {
     font-size: 12px;
     margin: 35px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pentup-logo {
+    position: relative;
+    margin: 10px;
+    width: 225px;
+    z-index: 0;
 }
