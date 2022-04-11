@@ -88,6 +88,21 @@ app.get('/api/pastdates', async (req, res) => {
 
 });
 
+app.get('/api/venue-details/:venueId', async (req, res) => {
+    const venueId = req.params.venueId;
+    // `https://api.songkick.com/api/3.0/venues/${venueId}.json?apikey=${process.env.SK_API}`
+
+    try {
+        await fetch(`https://api.songkick.com/api/3.0/venues/${venueId}.json?apikey=${process.env.SK_API}`)
+            .then(res => res.json())
+            .then(data => {
+                res.send(data.resultsPage.results);
+            });
+    } catch (err) {
+        console.log('error: ', err);
+    }
+});
+
 app.listen(process.env.PORT || port, function () {
     let startTime = new Date();
     let options = {

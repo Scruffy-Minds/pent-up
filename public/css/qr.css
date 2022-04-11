@@ -45,13 +45,6 @@ p {
     text-shadow: 1px 1px 5px #000;
 }
 
-.pentup-logo {
-    position: relative;
-    margin: 10px;
-    width: 225px;
-    z-index: 0;
-}
-
 .social-icon {
     height: 40px;
     cursor: pointer;

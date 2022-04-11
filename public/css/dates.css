@@ -9,125 +9,153 @@ hr {
     width: 55px;
 }
 
-/* IDs */
-#songkick {
+/* Classes */
+.col-date {
+    justify-content: left;
+    margin: 1%;
+    width: 16%;
+}
+
+.col-venue {
+    margin: 1%;
+    text-align: left;
+    width: 48%;
+}
+
+.col-location {
+    justify-content: right !important;
+    margin: 1%;
+    width: 30%;
+}
+
+.details {
+    margin: 10px auto 5px !important;
+    height: fit-content !important;
+}
+
+.details span {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+
+.event-age-limit {
+    justify-content: left;
+    margin: 1%;
+    width: 10%;
+}
+
+.event-age-limit img {
+    height: 25px;
+    margin-top: 3px;
+}
+
+.event-bands {
+    justify-content: center;
+    margin: 1%;
+    width: 74%;
+}
+
+.event-date,
+.event-location {
+    color: #ccc;
+}
+
+.event-headers {
+    display: flex;
+    font-size: 0.70em;
+}
+
+.event-headers span {
+    display: flex;
+    justify-content: left;
+}
+
+.event-headers span:last-child {
+    justify-content: right !important;
+}
+
+.event-info {
+    display: flex;
+    font-size: 0.70em;
+    height: 22px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.event-info span {
+    display: flex;
+}
+
+.event-tile {
+    border-color: #bfc3cc #d2d5db #e5e7ea;
+    border: 1px solid;
+    /* height: 103px; */
+    /* height: fit-content !important; */
+    margin: 2px auto 10px;
+    /* min-height: 43px; */
+    width: 100%;
+    text-shadow: 0 0 0 #000;
+}
+
+
+
+.event-tile div {
+    line-height: 22px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.event-venue {
+    font-size: 1.15em;
+    font-weight: 700;
+}
+
+.extended {
+    color: #ccc;
+}
+
+
+.sk-link {
+    margin: 1%;
+    width: 10%;
+}
+
+.sk-link img {
+    height: 25px;
+    margin-top: 3px;
+}
+
+.songkick {
     align-self: center;
     height: 30px;
     opacity: 0.85;
 }
 
 .title {
-    width: 100%;
     font-size: 1.05em;
-    align-self: flex-end;
     margin-bottom: 12px;
+    width: 100%;
 }
 
 .title span {
-    display: inline-block;
     align-self: flex-end;
-    margin-bottom: 3px;
-    margin-right: 13px;
+    display: inline-block;
+    margin: 0 13px 3px 0;
+}
+
+.toggle-arrow {
+    line-height: 10px;
+    margin: 5px auto 4px;
+    cursor: pointer;
 }
 
 #upcoming-shows,
 #past-shows {
     width: 100%;
-    font-size: 0.75em;
-}
-
-/* Classes */
-.date,
-.show-headers span:nth-of-type(1) {
-    width: 27%;
 }
 
 .loading {
-    margin: 50px auto;
-    width: 75px;
-}
-
-.pentup-logo {
-    margin: 10px;
-    position: relative;
-    width: 225px;
-    z-index: 0;
-}
-
-.show-headers {
-    font-size: 0.95em;
-}
-
-.show-headers span {
-    display: flex;
-    padding-left: 5px;
-    text-align: left;
-}
-
-.show-headers span:last-child {
-    padding-right: 5px;
-    text-align: right;
-}
-
-.show {
-    height: 45px;
-    margin: 4px auto 10px;
-    width: 100%;
-    border: 1px solid;
-    border-color: #bfc3cc #d2d5db #e5e7ea;
-    text-shadow: 0 0 0 #000;
-}
-
-.show div {
-    line-height: 22px;
-    padding-left: 5px;
-    text-align: left;
-}
-
-.show img {
-    align-self: center;
-}
-
-.event,
-.show-headers span:nth-of-type(3) {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    text-align: center;
-    width: 23%;
-}
-
-.event img {
-    color: white;
-    width: 20px;
-    opacity: 0.75;
-}
-
-.venue,
-.show-headers span:nth-of-type(2) {
-    width: 50%;
-}
-
-.venue div {
-    height: 25px;
-    padding: 0;
-}
-
-.venue span {
-    display: block;
-}
-
-.venue span:first-child {
-    font-size: 1.15em;
-    font-weight: 700;
-}
-
-.venue span:last-child {
-    font-size: 0.85em;
-    font-weight: 300;
-    color: #ccc;
-}
-
-.downarrow {
-    line-height: 10px;
+    width: 50px;
 }

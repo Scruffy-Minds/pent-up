@@ -5,42 +5,68 @@ const store = {
     pastDates: []
 };
 
+function getShowInfo() {
+    const fetchCurrent = fetch(`/api/dates`).then(res => res.json());
+    const fetchPast = fetch(`/api/pastdates`).then(res => res.json());
 
-function getDates() {
-    fetch(`/api/dates`)
-        .then(res => res.json())
-        .then(data => { 
-            data.event.forEach((v, i, a) => {
+    Promise.allSettled([fetchCurrent, fetchPast])
+        .then(res => {
+
+            res[0].value.event.forEach((v) => {
                 store.dates.push(v);
             });
             populateDates(store.dates, 'upcoming-shows');
-        });
-    fetch(`/api/pastdates`)
-        .then(res => res.json())
-        .then(data => {
-            data.event.forEach((v, i, a) => {
+            
+            res[1].value.event.forEach((v) => {
                 store.pastDates.push(v);
             });
             populateDates(store.pastDates, 'past-shows');
-        });
+
+            const arrows = d.querySelectorAll('.toggle-arrow');
+            addListeners(arrows);
+
+        })
+        .catch(err => console.error(err))
 }
 
-getDates();
+
+
+function getTime(datetime) {
+    const date = new Date(datetime);     
+    let hours = date.getHours();
+    let minutes = date.getMinutes();        
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes.toString().padStart(2, '0');
+    return hours + ':' + minutes + ampm;    
+}
 
 function populateDates(data, target) {
-    const header = `<div class="show-headers row space-around">
-                        <span>Date</span>
-                        <span>Venue</span>
-                        <span>Event Link</span>
-                    </div>`
-    let dateTiles = header;
-    
+    let dateTiles = '';
+    const header = `<div class="event-headers row space-around">
+                <span class="col-date"">Date</span>
+                <span class="col-venue">Venue</span>
+                <span class="col-location">Location</span>
+            </div>`;
+    const pastShows = `<div class="title row center">
+                <span>Past shows</span>
+                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+            </div>`;
+    if (target === 'past-shows') {        
+        dateTiles = dateTiles + pastShows + header;
+    } else {
+        dateTiles = dateTiles + header;
+    }
+
     // maybe check if there are any dates here?
     data.forEach((v) => {
-        const dt = new Date(v.start.date);
+        const dt = new Date(v.start.datetime);
         const info = {
-            date: `${dt.getUTCMonth()+1}-${dt.getUTCDate().toString().padStart(2, "0")}-${dt.getUTCFullYear()}`,
-            time: v.start.time,
+            eventId: v.id,
+            date: `${dt.getUTCMonth()+1}-${dt.getUTCDate().toString().padStart(2, "0")}-${dt.getUTCFullYear().toString().slice(-2)}`,
+            time: v.start.datetime,
+            datetime: v.start.datetime,
             location: `${v.venue.metroArea.displayName}, ${v.venue.metroArea.state.displayName}`,
             eventUrl: v.uri,
             venue: {
@@ -55,26 +81,107 @@ function populateDates(data, target) {
             },
             ageLimit: v.ageRestriction,
             bands: v.performance.map((v) => v.displayName)
-        }
+        };
         dateTiles = dateTiles + generateTile(info);
     }); 
+
     d.getElementById(target).innerHTML = dateTiles;
 }
 
+
 function generateTile(data) {
-    console.log(data);
-    
-    const tile = `<div class="bkg-glass glow show row space-around">
-        <div class="date">${data.date}</div>
-        <div class="venue">
-            <span>${data.venue.name}</span>
-            <span>${data.venue.city}, ${data.venue.state}</span></div>
-        <div class="event">
-            <a href="${data.eventUrl}" target="_blank">
-                <img src="/images/icons/icon-link.png" alt="Event Link">
-            </a>
-        </div>
-    </div>`    
+    const tile = `<div class="${data.eventId} event-tile column glow bkg-glass space-around">
+                    <div class="event-info row space-around">
+                        <span class="col-date event-date">${data.date}</span>
+                        <span class="${data.eventId} col-venue event-venue">${data.venue.name}</span>
+                        <span class="col-location event-location">${data.venue.city}, ${data.venue.state}</span>
+                    </div>
+                    <div div class = "${data.eventId} event-info extended row space-around hidden" >
+                        <span class="col-date event-time">${getTime(data.datetime)}</span>
+                        <span class="${data.venue.id} col-venue event-address">...</span>
+                        <span class = "${data.venue.id} col-location event-zip" > ... </span>
+                    </div>
+                    <div class = "${data.eventId} event-info details row space-between hidden">
+                        <span class="event-age-limit"><img src="${getAgeIcon(data.ageLimit)}" alt=""></span>
+                        <span class="event-bands">${data.bands.join(', ')}</span>
+                        <span class="sk-link"><a href="${data.eventUrl}" target="_blank"><img src="/images/songkick/sk-badge/sk-badge-white.png" alt="SongKick"></a></span>
+                    </div>
+                <div class="${data.eventId} toggle-arrow row space-around">
+                    <img src="/images/icons/icon-downarrow.png" style="width: 10px; opacity: .5;" alt="down arrow">
+                </div>
+            </div>`
     return tile;
 }
+
+function addListeners(arrows) {
+    arrows.forEach((v) => {
+        v.addEventListener('click', () => {
+
+            let arrowStatus = v.getElementsByTagName('img')[0].src;
+
+            // hide any extended sections that are visible before expanding the next one.
+            d.querySelectorAll('.extended').forEach((el) => {
+                if (!String(el.classList).includes('hidden')) {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // hide any details sections that are visible before expanding the next one.
+            d.querySelectorAll('.details').forEach((el) => {
+                if (!String(el.classList).includes('hidden')) {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // change any up-arrows to down-arrows before expanding the next one.
+            d.querySelectorAll('.toggle-arrow').forEach((el) => {
+                if (String(el.getElementsByTagName('img')[0].src).includes('uparrow')) {
+                    el.getElementsByTagName('img')[0].src = '/images/icons/icon-downarrow.png';
+                }
+            });
+
+            if (arrowStatus.includes('downarrow')) {
+                // expand the clicked event
+                const elementId = v.className.split(" ")[0];
+                v.getElementsByTagName('img')[0].src = '/images/icons/icon-uparrow.png';
+                const extended = d.getElementsByClassName(`extended ${elementId}`)[0];
+                const extendedSpans = extended.getElementsByTagName('span');
+                if (extendedSpans[1].innerHTML.includes('...')) {
+                    getVenueAddress(extendedSpans[1], extendedSpans[2]);
+                }
+                extended.classList.remove('hidden')
+                d.getElementsByClassName(`details ${elementId}`)[0].classList.remove('hidden');
+            }
+        });
+
+    });
+}
+
+function getVenueAddress(address, zip) {
+    const venueId = address.className.split(" ")[0];
+    fetch(`/api/venue-details/${venueId}`)
+        .then(res => res.json())
+        .then(data => {
+            address.innerHTML = data.venue.street;
+            zip.innerHTML = data.venue.zip;
+        });
+    
+}
+
+function getAgeIcon(data) {
+    const age = Number(data);
+    if (age === 0) {
+        return `/images/icons/age/21.png`;
+    } else if (age < 12) {
+        return `/images/icons/age/3.png`;
+    } else if (age < 16) {
+        return `/images/icons/age/12.png`;
+    } else if (age < 18) {
+        return `/images/icons/age/16.png`;
+    } else if (age < 21) {
+        return `/images/icons/age/18.png`;
+    } else return `/images/icons/age/21.png`;
+}
+
+getShowInfo();
 

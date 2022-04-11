@@ -11,79 +11,69 @@
                 <img class="pentup-logo" src="/images/pent_up_logo_small.png" alt="Pent Up!">
             </a>
         </div>
+        
+        <!-- BEGIN SHOWS SECTION -->
+        <section id="shows" class="row center">
 
-        <div id="shows" class="row center">
-
+            <!-- SECTION TITLE  -->
             <div class="title row center">
                 <span>Upcoming shows</span>
-                <img id="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png"
+                    alt="Powered by Songkick">
             </div>
 
-            <div id="upcoming-shows" class="column center">
+            <div id="upcoming-shows" class="">
                 <img class="loading" src="/images/loading.gif" alt="..loading...">
             </div>
 
             <hr>
-
-            <div class="title row center">
-                <span>Past shows</span>
-                <img id="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
-            </div>
-
-            <div id="past-shows" class="column center">
-                <img class="loading" src="/images/loading.gif" alt="..loading...">
-            </div>
-
-            <hr>
-
-
-
-
-            <div id="past-shows" class="column center">
-                <div class="show-headers row space-around">
-                    <span>Date</span>
-                    <span>Venue</span>
-                    <span>Location</span>
-                </div>
-
-                <div class="show column glow bkg-glass space-around">
-                    <div class="show-info row space-around">
-                        <span class="show-date">7/04/2022</span>
-                        <span class="show-venue">Showbox SoDo</span>
-                        <span class="show-location">Seattle, WA</span>
-                    </div>
-                    <div class="downarrow row space-around">
-                        <img src="/images/icons/icon-downarrow.png" style="width: 10px; opacity: .5;" alt="down arrow">
-                    </div>
-
-                </div>
-                
-
-
-                <!-- <div class="bkg-glass glow show row space-around">
-                    <div class="date">7/04/2022</div>
-                    <div class="venue">
-                        <span>Showbox SoDo</span>
-                        <span>&#8964;</span></div>
-                    <div class="event">
-                        <span>Seattle, WA</span>
-                    </div>
-                </div> -->
-            </div>
             
+            <div id="past-shows" class="">
+                <img class="loading" src="/images/loading.gif" alt="..loading...">
+            </div>
+
+
+
+
+            <!-- <div class="event-headers row space-around">
+                <span class="col-date"">Date</span>
+                <span class="col-venue">Venue</span>
+                <span class="col-location">Location</span>
+            </div>
+            <div class="event-tile column glow bkg-glass space-around">
+                    <div class="event-info row space-around">
+                        <span class="col-date event-date">4/04/2022</span>
+                        <span class="col-venue event-venue">Sunset Tavern</span>
+                        <span class="col-location event-location">Seattle, WA</span>
+                    </div>
+                    <div class="event-info extended row space-around hidden">
+                        <span class="col-date event-time">8:00 PM</span>
+                        <span class="col-venue event-address">5433 Ballard Ave NW</span>
+                        <span class="col-location event-zip">98107</span>
+                    </div>
+                    <div class="event-info details row space-between hidden">
+                        <span class="event-age-limit"><img src="/images/icons/age/21.png" alt=""></span>
+                        <span class="event-bands">Pent Up!, Highest of Heels, Juliet Tango</span>
+                        <span class="sk-link"><img src="/images/songkick/sk-badge/sk-badge-pink.png" alt="SongKick"></span>
+                    </div>
+                <div class="toggle-arrow row space-around">
+                    <img src="/images/icons/icon-downarrow.png" style="width: 10px; opacity: .5;" alt="down arrow">
+                </div>
+            </div> -->
 
 
 
 
 
-        </div>
+        </section>
 
 
 
         <div class="row center"><% const thisYear = new Date().getFullYear(); %>
             <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
         </div>
-    </div> 
-    
+    </div>
+
 </body>
+
 </html>
