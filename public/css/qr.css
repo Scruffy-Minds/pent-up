@@ -15,7 +15,7 @@ p {
 
 /* Classes */
 .buttons {
-    font-size: 22px;
+    font-size: 1.1em;
     margin: 3px auto;
     text-align: center;
 }
@@ -43,13 +43,6 @@ p {
     font-size: .75em;
     margin-top: 5px;
     text-shadow: 1px 1px 5px #000;
-}
-
-.pentup-logo {
-    position: relative;
-    margin: 10px;
-    width: 225px;
-    z-index: 0;
 }
 
 .social-icon {

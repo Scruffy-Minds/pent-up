@@ -1,95 +1,167 @@
 window.dataLayer = window.dataLayer || [];
 const d = document;
-const store = {
-    dates: [],
-    pastDates: []
-};
 
-console.log(store);
+function addListeners(arrows) {
+    arrows.forEach((v) => {
+        v.addEventListener('click', () => {
+            let arrowStatus = v.getElementsByTagName('img')[0].src;
 
-function getDates() {
-    fetch(`/api/dates`)
-        .then(res => res.json())
-        .then(data => { 
-            console.log(data);
-            data.event.forEach((v, i, a) => {
-                store.dates.push(v);
+            // hide any extended sections that are visible before expanding the next one.
+            d.querySelectorAll('.extended').forEach((el) => {
+                if (!String(el.classList).includes('hidden')) {
+                    el.classList.add('hidden');
+                }
             });
-            populateDates(store.dates, 'upcoming-shows');
 
-        });
-    fetch(`/api/pastdates`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            data.event.forEach((v, i, a) => {
-                store.pastDates.push(v);
+            // hide any details sections that are visible before expanding the next one.
+            d.querySelectorAll('.details').forEach((el) => {
+                if (!String(el.classList).includes('hidden')) {
+                    el.classList.add('hidden');
+                }
             });
-            populateDates(store.pastDates, 'past-shows');
 
+            // change any up-arrows to down-arrows before expanding the next one.
+            d.querySelectorAll('.toggle-arrow').forEach((el) => {
+                if (String(el.getElementsByTagName('img')[0].src).includes('uparrow')) {
+                    el.getElementsByTagName('img')[0].src = '/images/icons/icon-downarrow.png';
+                }
+            });
+
+            if (arrowStatus.includes('downarrow')) {
+                // expand the clicked event
+                const elementId = v.className.split(" ")[0];
+                v.getElementsByTagName('img')[0].src = '/images/icons/icon-uparrow.png';
+                const extended = d.getElementsByClassName(`extended ${elementId}`)[0];
+                const extendedSpans = extended.getElementsByTagName('span');
+                if (extendedSpans[1].innerHTML.includes('loading')) {
+                    getVenueAddress(extendedSpans[1], extendedSpans[2]);
+                }
+                extended.classList.remove('hidden')
+                d.getElementsByClassName(`details ${elementId}`)[0].classList.remove('hidden');
+            }
         });
+    });
 }
-
-getDates();
-
-function populateDates(data, target) {
-    const dateTiles = d.createDocumentFragment();
-    data.forEach((v) => {
-        const dt = new Date(v.start.date);
-        const info = {
-            date: `${dt.getUTCMonth()+1}-${dt.getUTCDate().toString().padStart(2, "0")}-${dt.getUTCFullYear()}`,
-            time: v.start.time,
-            location: v.location.city,
-            tickets: v.uri,
-            venue: v.venue.displayName
-        }
-
-        const tile = generateTile(info);
-
-        dateTiles.appendChild(tile);
-        d.querySelector('.loading').classList.add('hidden');
-        d.getElementsByTagName('hr')[0].classList.remove('hidden');
-        console.log(d.getElementsByTagName('hr'));
-        
-        d.getElementById(target).appendChild(tile);
-
-    });    
-}
-
-
 
 function generateTile(data) {
-    const dFrag = d.createDocumentFragment();
-    const tile = d.createElement('div');
-    const date = d.createElement('div');
-    const venue = d.createElement('div');
-    const venueName = d.createElement('span');
-    const venueLocation = d.createElement('span');
-    const ticket = d.createElement('div');
-    const ticketLink = d.createElement('a');
-    const ticketImage = d.createElement('img');
-    
-    tile.classList.add('show', 'row', 'space-around');
-    date.classList.add('date');
-    venue.classList.add('venue');
-    ticket.classList.add('ticket');
-    ticketImage.src = '/images/icons/icon-ticket.png';
-    ticketImage.alt = 'Tickets';
-    ticketLink.href = data.tickets;
-    ticketLink.target = '_blank';
-
-    date.innerHTML = data.date;
-    venueName.innerHTML = data.venue;
-    venueLocation.innerHTML = data.location;
-    
-    ticketLink.appendChild(ticketImage);
-    ticket.appendChild(ticketLink);
-    venue.appendChild(venueName);    
-    venue.appendChild(venueLocation);
-    tile.appendChild(date);
-    tile.appendChild(venue);
-    tile.appendChild(ticket);
-
+    const tile = `<div class="${data.eventId} event-tile column glow bkg-glass space-around">
+                    <div class="event-info row space-around">
+                        <span class="col-date event-date">${data.date}</span>
+                        <span class="${data.eventId} col-venue event-venue">${data.venue.name}</span>
+                        <span class="col-location event-location">${data.venue.city}, ${data.venue.state}</span>
+                    </div>
+                    <div div class = "${data.eventId} event-info extended row space-around hidden" >
+                        <span class="col-date event-time">${getTime(data.datetime)}</span>
+                        <span class="${data.venue.id} col-venue event-address"><img src="/images/loading-dots.gif" alt="loading"></span>
+                        <span class = "${data.venue.id} col-location event-zip"></span>
+                    </div>
+                    <div class = "${data.eventId} event-info details row space-between hidden">
+                        <span class="event-age-limit"><img src="${getAgeIcon(data.ageLimit)}" alt=""></span>
+                        <span class="event-bands">${data.bands.join(', ')}</span>
+                        <span class="sk-link"><a href="${data.eventUrl}" target="_blank"><img src="/images/songkick/sk-badge/sk-badge-white.png" alt="SongKick"></a></span>
+                    </div>
+                <div class="${data.eventId} toggle-arrow row space-around">
+                    <img src="/images/icons/icon-downarrow.png" alt="down arrow">
+                </div>
+            </div>`
     return tile;
 }
 
+function getAgeIcon(data) {
+    const age = Number(data);
+    if (age === 0) {
+        return `/images/icons/age/21.png`;
+    } else if (age < 12) {
+        return `/images/icons/age/3.png`;
+    } else if (age < 16) {
+        return `/images/icons/age/12.png`;
+    } else if (age < 18) {
+        return `/images/icons/age/16.png`;
+    } else if (age < 21) {
+        return `/images/icons/age/18.png`;
+    } else return `/images/icons/age/21.png`;
+}
+
+function getTime(datetime) {
+    const date = new Date(datetime);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes.toString().padStart(2, '0');
+    return hours + ':' + minutes + ampm;
+}
+
+function getShowInfo() {
+    Promise.allSettled([fetch(`/api/dates`).then(res => res.json()), fetch(`/api/pastdates`).then(res => res.json())])
+        .then(res => {
+             populateDates(res[0].value.event, 'current-shows');
+            populateDates(res[1].value.event, 'past-shows');
+            d.getElementsByTagName('hr')[0].classList.remove('hidden');
+            d.querySelector('.copyright').classList.remove('hidden');
+            addListeners(d.querySelectorAll('.toggle-arrow'));
+        })
+        .catch(err => console.error(err))
+}
+
+function getVenueAddress(address, zip) {
+    const venueId = address.className.split(" ")[0];
+    fetch(`/api/venue-details/${venueId}`)
+        .then(res => res.json())
+        .then(data => {
+            address.innerHTML = data.venue.street;
+            zip.innerHTML = data.venue.zip;
+        });
+}
+
+function populateDates(data, target) {
+    let dateTiles = '';
+    const header = `<div class="event-headers row space-around">
+                <span class="col-date"">Date</span>
+                <span class="col-venue">Venue</span>
+                <span class="col-location">Location</span>
+            </div>`;
+    const pastShows = `<div class="title row center">
+                <span>Past shows</span>
+                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+            </div>`;
+    if (target === 'past-shows') {        
+        dateTiles = dateTiles + pastShows + header;
+    } else {
+        dateTiles = dateTiles + header;
+    }
+
+    if (data.length > 0) {
+        data.forEach((v) => {
+            const dt = new Date(v.start.datetime);
+            const info = {
+                eventId: v.id,
+                date: `${dt.getUTCMonth()+1}-${dt.getUTCDate().toString().padStart(2, "0")}-${dt.getUTCFullYear().toString().slice(-2)}`,
+                time: v.start.datetime,
+                datetime: v.start.datetime,
+                location: `${v.venue.metroArea.displayName}, ${v.venue.metroArea.state.displayName}`,
+                eventUrl: v.uri,
+                venue: {
+                    name: v.venue.displayName,
+                    url: v.venue.uri,
+                    id: v.venue.id,
+                    city: v.venue.metroArea.displayName,
+                    state: v.venue.metroArea.state.displayName,
+                    country: v.venue.metroArea.country.displayName,
+                    latitude: v.venue.lat,
+                    longitude: v.venue.lng
+                },
+                ageLimit: v.ageRestriction,
+                bands: v.performance.map((v) => v.displayName.replace(/ /g, '\u00a0'))
+            };
+            dateTiles = dateTiles + generateTile(info);
+        }); 
+        d.getElementById(target).innerHTML = dateTiles;
+    } else {
+        dateTiles = dateTiles + '<span class="noshows">\&mdash;No shows to display\&mdash;</span>';
+        d.getElementById(target).innerHTML = dateTiles;
+    }
+}
+
+getShowInfo();
