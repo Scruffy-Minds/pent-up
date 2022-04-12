@@ -36,7 +36,9 @@ app.get('/qr', (req, res) => {
 app.get('/press', (req, res) => {
     let title = `Pent Up! | Press Kit`;
     res.render('press', {
-        title: title
+        title: title,
+        script: 'press.js',
+        styles: 'press.css'
     });
 });
 

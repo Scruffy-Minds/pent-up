@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/css/press.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pent Up! | Press Pack</title>
-</head>
-<body class="container">
-    <div class="row">
-        <div class="column">
-            <h3>We are Pent-Up!</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus gravida tortor, vel luctus ipsum eleifend quis. Aenean feugiat quam sit amet maximus maximus. Proin sed tempus sapien. Cras maximus turpis orci, eu sollicitudin ipsum blandit suscipit. Duis vulputate eu ipsum at mattis. In faucibus blandit odio, at euismod purus imperdiet eget. Curabitur vitae iaculis justo. Nulla eleifend tincidunt erat, quis vulputate lorem. Ut volutpat interdum egestas. Vestibulum sed feugiat erat. Aliquam sed tellus ipsum. Nam at molestie sapien. Maecenas malesuada sit amet libero nec consectetur. Fusce tincidunt nisl nec convallis varius. Morbi non libero porta, tincidunt nisl in, auctor nunc.
-            </p>
-        </div>
-        <div class="column">
-            <div class="img-box">
-                <img src="/images/pent_up_logo.png" >
+<%- include('partials/head'); -%>
+<body>
+    <div class="container">
+        <div class="row page">
+            <div class="column left">
+                    <div class="header">
+                        <img class="pentup-logo" src="/images/pent_up_logo_dark.png" alt="Pent Up!">
+                    </div>
+                    <div class="artist-info">
+                        <p class="heading">Artist Info</p>
+                        <div class="details">
+                            <p><span class="bold">Contact:</span> info@pentup.band</p>
+                            <p><span class="bold">Website:</span> www.pentup.band</p>
+                            <p><span class="bold">Genre:</span> Alternative Punk Rock</p>
+                            <p><span class="bold">Hometown:</span> Seattle, WA</p>
+                            <p><span class="bold">Influences:</span> Social Distortion, Dinosaur Jr., Foo Fighters, Green Day</p>
+                            <p class="heading">The Band</p>
+                            <p><span class="bold">Brendan Honeycutt:</span> Guitar & Vox</p>
+                            <p><span class="bold">Nate Oelrich:</span> Drums & Backing Vox</p>
+                            <p><span class="bold">Jay Barrett:</span> Bass & Backing Vox</p>
+                            <p class="heading">Self-Titled [Single]</p>
+                            <img src="/images/self-titled_single_cover.png" alt="Self-Titled" class="album-art">
+                            <p><span class="bold">Release Date:</span> March 11th, 2022</p>
+                            <p>Distribution via DistroKid, available on all major streaming platforms.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="column right">
+                <div class="header">
+                    <img src="/images/pent_up_band_photo.png" alt="Pent Up!" class="band-photo">
+                </div>
+                <div class="artist-bio">
+                    <p>Pent Up! was born in 2021 amid the boredom and
+                    isolation of COVID-19 quarantine restrictions.
+                    Prior to the pandemic shutdown, Nate and
+                    Brendan had met at an open mic night and had
+                    discussed getting together to jam. Then the world
+                    ended. Fast forward to present day and the dawn
+                    of the new world, the jam session finally
+                    occurred... Songs were written, beers were drunk,
+                    demos were recorded, and the story began.</p>
+                    <p>The trio combines driving rhythms and catchy
+                    songcraft with punk energy and abandon. Their
+                    music echoes hints of Dinosaur Jr., Foo Fighters,
+                    Green Day, and Social Distortion... also Gin
+                    Blossoms — they don't even know how or why.</p>
+                    <p>It can be said that no one is ever bored at a Pent
+                    Up! show. The band delivers a high-energy
+                    performance with wit and humor sprinkled
+                    liberally throughout the set, leaving the audience
+                    captivated, entertained, and motivated to spend a
+                    lot of money at the bar, tipping the bartenders
+                    with extraordinary generosity.</p>
+                    <p>The debut single, Self-Titled, was released on all
+                    major platforms on 3/11/2022. The band has
+                    enjoyed the warm reception with which it has been
+                    met, and is looking forward to their first 32-cent
+                    royalty check arriving in the mail.</p>
+                    <p>Also, their moms say they're handsome.</p>
+                    <p>...all of them.</p>
+                    <p>XOXO, Pent Up!</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="column">
-            <div class="img-box">
-                <img src="/images/pent_up_logo.png" >
-            </div>
-        </div>
-        <div class="column">
-            <h3>Streaming!</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus gravida tortor, vel luctus ipsum eleifend quis. Aenean feugiat quam sit amet maximus maximus. Proin sed tempus sapien. Cras maximus turpis orci, eu sollicitudin ipsum blandit suscipit. Duis vulputate eu ipsum at mattis. In faucibus blandit odio, at euismod purus imperdiet eget. Curabitur vitae iaculis justo. Nulla eleifend tincidunt erat, quis vulputate lorem. Ut volutpat interdum egestas. Vestibulum sed feugiat erat. Aliquam sed tellus ipsum. Nam at molestie sapien. Maecenas malesuada sit amet libero nec consectetur. Fusce tincidunt nisl nec convallis varius. Morbi non libero porta, tincidunt nisl in, auctor nunc.
-            </p>
-        </div>
+
+    <div class="row center">
+        <p class="download"><a href="/downloads/pent_up_press_kit_2022-03-11.pdf" download>Download PDF</a></p>
     </div>
-    <div class="row">
-        <div class="column">
-            <h3>Live Perfomances!</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus gravida tortor, vel luctus ipsum eleifend quis. Aenean feugiat quam sit amet maximus maximus. Proin sed tempus sapien. Cras maximus turpis orci, eu sollicitudin ipsum blandit suscipit. Duis vulputate eu ipsum at mattis. In faucibus blandit odio, at euismod purus imperdiet eget. Curabitur vitae iaculis justo. Nulla eleifend tincidunt erat, quis vulputate lorem. Ut volutpat interdum egestas. Vestibulum sed feugiat erat. Aliquam sed tellus ipsum. Nam at molestie sapien. Maecenas malesuada sit amet libero nec consectetur. Fusce tincidunt nisl nec convallis varius. Morbi non libero porta, tincidunt nisl in, auctor nunc.
-            </p>
-        </div>
-        <div class="column">
-            <div class="img-box">
-                <img src="/images/pent_up_logo.png" >
-            </div>
-        </div>
-    </div>
+    
+    <%- include('partials/copyright'); -%>
+
 </body>
 </html>
-
