@@ -7,7 +7,7 @@
 
         <div class="row space-around">
             <a href="/" target="_blank">
-                <img class="pentup-logo" src="/images/pent_up_logo_small.png" alt="Pent Up!">
+                <img class="pentup-logo" src="/images/pent_up_logo_transparent.png" alt="Pent Up!">
             </a>
         </div>
 
@@ -33,10 +33,7 @@
             <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
         
         </div>
-        <% const thisYear = new Date().getFullYear(); %>
-        <div class="row center">
-            <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
-        </div>
+        <%- include('partials/copyright'); -%>
 
     </div>
 </body>

@@ -1,5 +1,6 @@
 window.dataLayer = window.dataLayer || [];
 const d = document;
+d.querySelector('.copyright').classList.add('hidden');
 
 function addListeners(arrows) {
     arrows.forEach((v) => {
