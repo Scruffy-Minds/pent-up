@@ -10,7 +10,11 @@ const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
 const fetch = require('node-fetch');
+const redirectSSL = require('redirect-ssl')
 
+app.use(redirectSSL.create({
+    exclude: ['localhost']
+}));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
