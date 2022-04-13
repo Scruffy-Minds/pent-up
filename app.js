@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.get('/qr', (req, res) => {
     const data = require('./public/javascript/qr_data.json');  
-    let title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
+    const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',
@@ -34,16 +34,18 @@ app.get('/qr', (req, res) => {
 });
 
 app.get('/press', (req, res) => {
-    let title = `Pent Up! | Press Kit`;
+    const data = require('./public/javascript/qr_data.json');
+    const title = `Pent Up! | Press Kit`;
     res.render('press', {
         title: title,
         script: 'press.js',
-        styles: 'press.css'
+        styles: 'press.css',
+        sites: data.sites
     });
 });
 
 app.get('/dates', (req, res) => {
-    let title = `Pent Up! | Show Dates!`;
+    const title = `Pent Up! | Show Dates!`;
     res.render('dates', {
         title: title,
         script: 'dates.js',
@@ -98,8 +100,8 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
 });
 
 app.listen(process.env.PORT || port, function () {
-    let startTime = new Date();
-    let options = {
+    const startTime = new Date();
+    const options = {
         hour: 'numeric',
         minute: 'numeric'
     };

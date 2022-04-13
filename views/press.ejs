@@ -11,8 +11,8 @@
                     <div class="artist-info">
                         <p class="heading">Artist Info</p>
                         <div class="details">
-                            <p><span class="bold">Contact:</span> info@pentup.band</p>
-                            <p><span class="bold">Website:</span> www.pentup.band</p>
+                            <p><span class="bold">Contact:</span> <a href="mailto:info@pentup.band?subject=Your press kit rocks!">info@pentup.band</a></p>
+                            <p><span class="bold">Website:</span> <a href="/" target="_blank"> www.pentup.band</a></p>
                             <p><span class="bold">Genre:</span> Alternative Punk Rock</p>
                             <p><span class="bold">Hometown:</span> Seattle, WA</p>
                             <p><span class="bold">Influences:</span> Social Distortion, Dinosaur Jr., Foo Fighters, Green Day</p>
@@ -21,7 +21,8 @@
                             <p><span class="bold">Nate Oelrich:</span> Drums & Backing Vox</p>
                             <p><span class="bold">Jay Barrett:</span> Bass & Backing Vox</p>
                             <p class="heading">Self-Titled [Single]</p>
-                            <img src="/images/self-titled_single_cover.png" alt="Self-Titled" class="album-art">
+                            <a href="https://open.spotify.com/album/1C6JopXSxtcQ5nDeDLRP5i?si=bd74S8efQya0N5ErN4C-2w" target="_blank"> <img src="/images/self-titled_single_cover.png" alt="Self-Titled" class="album-art"></a>
+                            <span class="stream">[&nbsp;<a href="https://open.spotify.com/album/1C6JopXSxtcQ5nDeDLRP5i?si=bd74S8efQya0N5ErN4C-2w" target="_blank">Spotify</a>&nbsp;|&nbsp;<a href="https://music.apple.com/us/album/self-titled-single/1613297938" target="_blank">Apple Music</a>&nbsp;]</span>
                             <p><span class="bold">Release Date:</span> March 11th, 2022</p>
                             <p>Distribution via DistroKid, available on all major streaming platforms.</p>
                         </div>
@@ -70,6 +71,11 @@
         <p class="download"><a href="/downloads/pent_up_press_kit_2022-03-11.pdf" download>Download PDF</a></p>
     </div>
     
+    <div id="socials" class="row">
+        <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
+        <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
+
+    </div>
     <%- include('partials/copyright'); -%>
 
 </body>
