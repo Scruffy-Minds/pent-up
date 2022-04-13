@@ -3,12 +3,14 @@
 /* ELEMENTS */
 a:link,
 a:visited {
-    color: #ddd;
+    color: #000;
+    text-decoration: none;
+        border-bottom: 1px dotted #bbb;
 }
 
 a:hover,
 a:active {
-    color: #fff;
+    color: #000;
 }
 
 body {
@@ -22,13 +24,23 @@ p {
     margin: 1.8px 0;
 }
 
+#socials {
+    margin: 35px auto 0;
+    width: 275px;
+    justify-content: space-around;
+}
+
+#socials a {
+    border: none;
+}
+
 /* CLASSES */
 .album-art {
     display: block;
     width: 80%;
     border: 1px solid grey;
     align-self: center;
-    margin: 15px auto;
+    margin: 15px auto 5px;
 }
 
 .artist-bio,
@@ -65,11 +77,22 @@ p {
     font-weight: 700;
 }
 
+.center {
+    margin: auto;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
 .column {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
+
 
 .copyright {
     color: #fff;
@@ -78,6 +101,16 @@ p {
 }
 
 .download {
+    color: #fff;
+}
+
+.download a:link,
+.download a:visited {
+    color: #ddd;
+}
+
+.download a:hover,
+.download a:active {
     color: #fff;
 }
 
@@ -108,7 +141,8 @@ p {
 }
 
 .page {
-    margin: 50px auto 5px !important;
+    display: flex;
+    margin: 50px auto 5px;
     background-color: #f7f7f7;
     border: 1px solid #e6e6e6;
     padding: 20px;
@@ -123,9 +157,137 @@ p {
 }
 
 .row {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: auto;
     width: 800px;
+}
+
+.social-icon {
+    height: 35px;
+    cursor: pointer;
+}
+
+.stream {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 13px;    
+    color: #666;
+}
+
+.stream a {
+    color: #3576b6;
+}
+
+/* Small phone screen sizes, from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .row {
+        width: 480px;
+    }
+
+}
+
+/* iPhone X Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+    .artist-bio {
+        font-size: 0.85em;
+    }
+
+    .page {
+        margin: 10px auto 5px !important;
+    }
+
+    .row {
+        width: 750px;
+    }
+}
+
+@media only screen and (min-device-width : 320) and (max-device-width : 568) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+    .artist-bio {
+        font-size: 0.85em;
+    }
+
+    .page {
+        margin: 10px auto 5px !important;
+    }
+
+    .row {
+        width: 560px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .artist-bio,
+    .artist-info {
+        margin: 25px 0;
+    }
+
+    .header {
+        height: 220px;
+    }
+
+    .band-photo {
+        height: 190px;
+    }
+
+    .page {
+        margin: 10px auto 5px !important;
+    }
+
+    .pentup-logo {
+        height: 220px;
+    }
+
+    .left {
+        width: 95%;
+    }
+
+    .right {
+        width: 95%;
+    }
+
+    .row {
+        width: 320px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .artist-bio,
+    .artist-info {
+        margin: 5px 0;
+    }
+
+    .band-photo {
+        height: 160px;
+    }
+
+    .left {
+        width: 95%;
+    }
+    
+    .page {
+        margin: 5px auto 5px !important;
+        padding: 5px;
+    }
+
+    .pentup-logo {
+        height: 200px;
+    }
+    
+    .right {
+        width: 95%;
+    }
+
+    .row {
+        width: 300px;
+    }
 }
