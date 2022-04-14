@@ -138,7 +138,7 @@ function populateDates(data, target) {
             const dt = new Date(v.start.datetime);
             const info = {
                 eventId: v.id,
-                date: `${dt.getUTCMonth()+1}-${dt.getUTCDate().toString().padStart(2, "0")}-${dt.getUTCFullYear().toString().slice(-2)}`,
+                date: `${dt.getMonth()+1}-${dt.getDate().toString().padStart(2, "0")}-${dt.getFullYear().toString().slice(-2)}`,
                 time: v.start.datetime,
                 datetime: v.start.datetime,
                 location: `${v.venue.metroArea.displayName}, ${v.venue.metroArea.state.displayName}`,
