@@ -97,13 +97,23 @@ function getTime(datetime) {
 function getShowInfo() {
     Promise.allSettled([fetch(`/api/dates`).then(res => res.json()), fetch(`/api/pastdates`).then(res => res.json())])
         .then(res => {
-             populateDates(res[0].value.event, 'current-shows');
-            populateDates(res[1].value.event, 'past-shows');
+            function compare(a, b) {
+                if (a.start.datetime < b.start.datetime) return -1;
+                else return 1;
+            }
+
+            const allDates = res[0].value.event.concat(res[1].value.event).sort(compare);
+
+            const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date());
+            const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date());
+ 
+            populateDates(currentDates, 'current-shows');
+            populateDates(pastDates.reverse(), 'past-shows');
             d.getElementsByTagName('hr')[0].classList.remove('hidden');
             d.querySelector('.copyright').classList.remove('hidden');
             addListeners(d.querySelectorAll('.toggle-arrow'));
         })
-        .catch(err => console.error(err))
+        .catch(err => console.error(err));
 }
 
 function getVenueAddress(address, zip) {
