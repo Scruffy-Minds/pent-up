@@ -58,39 +58,18 @@ app.get('/dates', (req, res) => {
 });
 
 app.get('/api/dates', async (req, res) => {
-    // --------------- Disable the follow code when testing to avoid excessive API calls
+    const apiCall = (type) => `https://api.songkick.com/api/3.0/artists/10191154/${type}.json?apikey=${process.env.SK_API}`;
     try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
+    Promise.allSettled([fetch(apiCall('calendar')).then(data => data.json()), fetch(apiCall('gigography')).then(data => data.json())])
+        .then(data => res.send(data[0].value.resultsPage.results.event.concat(data[1].value.resultsPage.results.event)));
     } catch (err) {
         console.log('error: ', err);
     }
 
-    // --------------- Activate this code when testing to avoid excessive API calls
-    // const filedata = require('./public/javascript/songkick_calendar.json');
-    // const results = filedata.resultsPage.results;
-    // setTimeout((() => {
-    //     res.send(results);
-    // }), 1000);
-});
-
-app.get('/api/pastdates', async (req, res) => {
-    // --------------- Disable the follow code when testing to avoid excessive API calls
-    try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
-    } catch (err) {
-        console.log('error: ', err);
-    }
-
-    // --------------- Enable the follow code when testing to avoid excessive API calls
-    // const filedata = require('./public/javascript/songkick_gigiography.json');
-    // const results = filedata.resultsPage.results;
-    // setTimeout((() => {
-    //     res.send(results);
-    // }), 1200);
+    // --------------- Activate this code and comment out original when testing to avoid excessive API calls
+    // const current = require('./public/javascript/songkick_calendar.json');
+    // const past = require('./public/javascript/songkick_gigiography.json');
+    // setTimeout((() => res.send(current.resultsPage.results.event.concat(past.resultsPage.results.event))), 700);
 });
 
 app.get('/api/venue-details/:venueId', async (req, res) => {

@@ -95,18 +95,18 @@ function getTime(datetime) {
 }
 
 function getShowInfo() {
-    Promise.allSettled([fetch(`/api/dates`).then(res => res.json()), fetch(`/api/pastdates`).then(res => res.json())])
+    fetch('api/dates')
+        .then(res => res.json())
         .then(res => {
             function compare(a, b) {
                 if (a.start.datetime < b.start.datetime) return -1;
                 else return 1;
             }
-
-            const allDates = res[0].value.event.concat(res[1].value.event).sort(compare);
-
+            
+            const allDates = res.sort(compare);
             const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date());
             const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date());
- 
+
             populateDates(currentDates, 'current-shows');
             populateDates(pastDates.reverse(), 'past-shows');
             d.getElementsByTagName('hr')[0].classList.remove('hidden');
