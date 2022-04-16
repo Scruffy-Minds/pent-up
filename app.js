@@ -11,10 +11,11 @@ const { query } = require('express');
 const app = express();
 const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
+const linkData = require('./public/javascript/qr_data.json');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -26,25 +27,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/qr', (req, res) => {
-    const data = require('./public/javascript/qr_data.json');  
     const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',
         styles: 'qr.css',
-        sites: data.sites,
-        news: data.news
+        sites: linkData.sites,
+        news: linkData.news
     });
 });
 
 app.get('/press', (req, res) => {
-    const data = require('./public/javascript/qr_data.json');
     const title = `Pent Up! | Press Kit`;
     res.render('press', {
         title: title,
         script: 'press.js',
         styles: 'press.css',
-        sites: data.sites
+        sites: linkData.sites
     });
 });
 
@@ -53,7 +52,8 @@ app.get('/dates', (req, res) => {
     res.render('dates', {
         title: title,
         script: 'dates.js',
-        styles: 'dates.css'
+        styles: 'dates.css',
+        sites: linkData.sites
     });
 });
 
@@ -69,7 +69,7 @@ app.get('/api/dates', async (req, res) => {
     // --------------- Activate this code and comment out original when testing to avoid excessive API calls
     // const current = require('./public/javascript/songkick_calendar.json');
     // const past = require('./public/javascript/songkick_gigiography.json');
-    // setTimeout((() => res.send(current.resultsPage.results.event.concat(past.resultsPage.results.event))), 700);
+    // setTimeout((() => res.send(current.resultsPage.results.event.concat(past.resultsPage.results.event))), 300);
 });
 
 app.get('/api/venue-details/:venueId', async (req, res) => {
@@ -81,6 +81,11 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
         console.log('error: ', err);
     }
 });
+
+app.post('/subscribe', (req, res) => {
+    console.log('it got clicked');
+    
+})
 
 app.listen(process.env.PORT || port, function () {
     const startTime = new Date();

@@ -20,3 +20,10 @@ function toggleHidden(element) {
     const isPrimary = ((Array.from(element.classList)).find(e => e === 'primary') === 'primary') ? true : false;
     if (isPrimary != true) element.classList.toggle('hidden');
 }
+
+
+function subscribe(x) {
+    console.log('click!');
+}
+
+d.getElementById('submit').addEventListener('click', subscribe);

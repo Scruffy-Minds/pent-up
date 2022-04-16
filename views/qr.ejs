@@ -5,20 +5,20 @@
 
     <div class="container">
 
-        <div class="row space-around">
+        <div class="row jc-space-around">
             <a href="/" target="_blank">
                 <img class="pentup-logo" src="/images/pent_up_logo_transparent.png" alt="Pent Up!">
             </a>
         </div>
 
-        <div class="news row center">
+        <div class="news row jc-center">
             <span><%= news %></span>
         </div>
 
-        <div id="streaming" class="row center">
+        <div id="streaming" class="row jc-center">
             <%const streamers = sites.filter(x => x.type === 'streaming'); streamers.forEach((v, i, a) => { if(v.active === true) { const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
             <%-`<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="listen-btn bkg-glass glow button${primary}" src="/images/buttons/${v.id}_btn.png" alt="Listen on ${v.name}"></a>`%><%}});%>
-            <span class="more row center">Tap here for more streaming services</span>
+            <span class="more row jc-center">Tap here for more streaming services</span>
         
         </div>
 
@@ -28,13 +28,11 @@
         
         </div>
 
-        <div id="socials" class="row space-around icons">
-        <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
-            <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
-        
-        </div>
-        <%- include('partials/copyright'); -%>
 
+
+
+
+        <%- include('partials/footer'); -%>
     </div>
 </body>
 </html>

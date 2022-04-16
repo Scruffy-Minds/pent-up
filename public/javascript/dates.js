@@ -45,23 +45,23 @@ function addListeners(arrows) {
 }
 
 function generateTile(data) {
-    const tile = `<div class="${data.eventId} event-tile column glow bkg-glass space-around">
-                    <div class="event-info row space-around">
+    const tile = `<div class="${data.eventId} event-tile column glow bkg-glass jc-space-around">
+                    <div class="event-info row jc-space-around">
                         <span class="col-date event-date">${data.date}</span>
                         <span class="${data.eventId} col-venue event-venue">${data.venue.name}</span>
                         <span class="col-location event-location">${data.venue.city}, ${data.venue.state}</span>
                     </div>
-                    <div div class = "${data.eventId} event-info extended row space-around hidden" >
+                    <div div class = "${data.eventId} event-info extended row jc-space-around hidden" >
                         <span class="col-date event-time">${getTime(data.datetime)}</span>
                         <span class="${data.venue.id} col-venue event-address"><img src="/images/loading-dots.gif" alt="loading"></span>
                         <span class = "${data.venue.id} col-location event-zip"></span>
                     </div>
-                    <div class = "${data.eventId} event-info details row space-between hidden">
+                    <div class = "${data.eventId} event-info details row jc-space-between hidden">
                         <span class="event-age-limit"><img src="${getAgeIcon(data.ageLimit)}" alt=""></span>
                         <span class="event-bands">${data.bands.join(', ')}</span>
                         <span class="sk-link"><a href="${data.eventUrl}" target="_blank"><img src="/images/songkick/sk-badge/sk-badge-white.png" alt="SongKick"></a></span>
                     </div>
-                <div class="${data.eventId} toggle-arrow row space-around">
+                <div class="${data.eventId} toggle-arrow row jc-space-around">
                     <img src="/images/icons/icon-downarrow.png" alt="down arrow">
                 </div>
             </div>`
@@ -128,12 +128,12 @@ function getVenueAddress(address, zip) {
 
 function populateDates(data, target) {
     let dateTiles = '';
-    const header = `<div class="event-headers row space-around">
+    const header = `<div class="event-headers row jc-space-around">
                 <span class="col-date"">Date</span>
                 <span class="col-venue">Venue</span>
                 <span class="col-location">Location</span>
             </div>`;
-    const pastShows = `<div class="title row center">
+    const pastShows = `<div class="title row jc-center">
                 <span>Past shows</span>
                 <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
             </div>`;
