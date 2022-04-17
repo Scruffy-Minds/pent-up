@@ -1,12 +1,12 @@
-const port = '3786';
+const port = process.env.PORT || 3786
 const siteName = 'Pent Up!';
 
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
-const bodyParser = require('body-parser');
+const request = require('request');
+// const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
 const fetch = require('node-fetch');
@@ -16,9 +16,10 @@ const linkData = require('./public/javascript/qr_data.json');
 // app.use(redirectSSL.create({
 //     exclude: ['localhost:3786']
 // }));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+app.use(express.json())
 app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
@@ -83,11 +84,21 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
 });
 
 app.post('/subscribe', (req, res) => {
-    console.log('it got clicked');
-    
-})
+    const options = {
+        url: `https://${process.env.MC_INSTANCE}.api.mailchimp.com/3.0/lists/${process.env.MC_LIST_ID}`,
+        method: `POST`,
+        headers: {
+            Authorization: `auth ${process.env.MC_API_KEY}`
+        },
+        body: JSON.stringify({members: [{email_address: req.body.email, status: 'subscribed'}]})
+    }
+    request(options, (err, response, body) => {
+        if (err) res.sendStatus(400);
+        else (response.statusCode === 200) ? res.sendStatus(200) : res.sendStatus(418);
+    });
+});
 
-app.listen(process.env.PORT || port, function () {
+app.listen(port, function () {
     const startTime = new Date();
     const options = {
         hour: 'numeric',
