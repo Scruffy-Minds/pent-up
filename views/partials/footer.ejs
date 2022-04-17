@@ -3,9 +3,9 @@
             <div class="row jc-center newsletter">
                 <span>Subscribe to our newsletter</span>
                 <form id="subscribe" class="row" action="/subscribe" method="POST">
-                    <input type="text" id="email-address" name="email" placeholder="Email address" value="">
+                    <input type="text" id="email-address" name="email" placeholder="Email address" value="" required>
+                    <input id="submit" type="submit" class="submit-btn bkg-glass" value="Subscribe"></input>
                 </form>
-                <div id="submit" class="submit-btn bkg-glass">Subscribe</div>
             </div>
             <div id="socials" class="row jc-space-around icons">
                 <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>

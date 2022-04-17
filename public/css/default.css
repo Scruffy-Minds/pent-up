@@ -59,17 +59,18 @@ body {
 
 /* IDs */
 #email-address {
+    display: inline;
     background-color: #f7f7f7;
     border: 1px solid;
     border-color: #868e9f #6b7487 #555b6a;
     box-shadow: inset 1px 1px 6px #aaa;
     font-size: 16px;
-    height: 35px;
-    margin: 0 10px 0 0;
+    height: 100%;
+    margin: 0;
     outline: none !important;
     padding: 5px;
     resize: none;
-    width: 100%;
+    width: 70%;
 }
 
 #email-address::placeholder,
@@ -78,7 +79,10 @@ body {
 }
 
 #footer {
-    border-top: 2px solid transparent;
+    border-top: 2px solid;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
     border-image: radial-gradient(circle at center, #bbb, #111);
     border-image-slice: 1;
     margin: 20px 5px;
@@ -89,7 +93,8 @@ body {
 }
 
 #subscribe {
-    width: 70%;
+    width: 100%;
+    height: 40px;
 }
 
 /* Classes */
@@ -113,7 +118,7 @@ body {
     cursor: pointer;
     font-family: 'Special Elite', sans-serif;
     height: 47px;
-    line-height: 45px;
+    line-height: 47px;
     margin: 15px auto;
     text-shadow: 0 0 0 #000;
     transition: all 0.25s ease-in-out;
@@ -146,6 +151,7 @@ body {
     width: 100%;
     text-align: justify;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .pentup-logo {
@@ -162,13 +168,15 @@ body {
 
 .submit-btn {
     border: 1px solid;
-    border-color: #e5e7ea #d2d5db #bfc3cc;
-    border-radius: 10px;
+    border-color: #868e9f #6b7487 #555b6a;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
     color: #f7f7f7;
     cursor: pointer;
-    height: 35px;
+    font-size: 16px;
+    height: 100%;
     line-height: 35px;
-    width: 30%;
-    color: #fff;
+    outline: none !important;
     text-shadow: 0 0 0 #000;
+    width: 30%;
 }

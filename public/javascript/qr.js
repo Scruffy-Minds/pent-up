@@ -1,7 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-const d = document;
-const store = [{ streamersExpanded: false }];
-
 d.querySelector('.more').addEventListener('click', () => {
     const streamers = Array.from(d.querySelectorAll('.listen-btn'));
     if (store.streamersExpanded === true) {
@@ -20,10 +16,3 @@ function toggleHidden(element) {
     const isPrimary = ((Array.from(element.classList)).find(e => e === 'primary') === 'primary') ? true : false;
     if (isPrimary != true) element.classList.toggle('hidden');
 }
-
-
-function subscribe(x) {
-    console.log('click!');
-}
-
-d.getElementById('submit').addEventListener('click', subscribe);

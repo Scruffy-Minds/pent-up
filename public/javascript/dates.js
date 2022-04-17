@@ -1,6 +1,5 @@
-window.dataLayer = window.dataLayer || [];
-const d = document;
 d.querySelector('.copyright').classList.add('hidden');
+d.getElementById('footer').classList.add('hidden');
 
 function addListeners(arrows) {
     arrows.forEach((v) => {
@@ -111,6 +110,7 @@ function getShowInfo() {
             populateDates(pastDates.reverse(), 'past-shows');
             d.getElementsByTagName('hr')[0].classList.remove('hidden');
             d.querySelector('.copyright').classList.remove('hidden');
+            d.getElementById('footer').classList.remove('hidden');
             addListeners(d.querySelectorAll('.toggle-arrow'));
         })
         .catch(err => console.error(err));
