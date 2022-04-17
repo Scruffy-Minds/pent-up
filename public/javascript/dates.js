@@ -110,6 +110,7 @@ function getShowInfo() {
             populateDates(pastDates.reverse(), 'past-shows');
             d.getElementsByTagName('hr')[0].classList.remove('hidden');
             d.querySelector('.copyright').classList.remove('hidden');
+            d.querySelector('.songkick').classList.remove('hidden');
             d.getElementById('footer').classList.remove('hidden');
             addListeners(d.querySelectorAll('.toggle-arrow'));
         })
@@ -135,7 +136,7 @@ function populateDates(data, target) {
             </div>`;
     const pastShows = `<div class="title row jc-center">
                 <span>Past shows</span>
-                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
+                
             </div>`;
     if (target === 'past-shows') {        
         dateTiles = dateTiles + pastShows + header;

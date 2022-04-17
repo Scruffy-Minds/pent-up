@@ -142,14 +142,20 @@ hr {
 
 .songkick {
     align-self: center;
-    height: 30px;
-    opacity: 0.85;
+    height: 40px;
+    margin: 10px auto 15px;
 }
 
 .title {
-    font-size: 1.05em;
+    border-bottom: 2px solid;
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    border-image: radial-gradient(circle at center, #bbb, #111);
+    border-image-slice: 1;
+    font-size: 1.25em;
     margin-bottom: 12px;
-    width: 100%;
+    width: 80%;
 }
 
 .title span {
