@@ -6,17 +6,16 @@
 <body>
     <div class="container">
 
-        <div class="row space-around">
+        <div class="row jc-space-around">
             <a href="/" target="_self">
                 <img class="pentup-logo" src="/images/pent_up_logo_transparent.png" alt="Pent Up!">
             </a>
         </div>
         
-        <section id="shows" class="row center">
+        <section id="shows" class="row jc-center">
 
-            <div class="title row center">
+            <div class="title row jc-center">
                 <span>Current shows</span>
-                <img class="songkick" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
             </div>
 
             <div id="current-shows" class="">
@@ -28,10 +27,10 @@
             <div id="past-shows" class="">
 
             </div>
+            <img class="songkick hidden" src="/images/songkick/powered-by-sk/powered-by-songkick-white.png" alt="Powered by Songkick">
 
         </section>
-
-        <%- include('partials/copyright'); -%>
+        <%- include('partials/footer'); -%>
     </div>
 
 </body>

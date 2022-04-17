@@ -14,7 +14,7 @@ body {
 }
 
 /* Flex Classes */
-.center {
+.jc-center {
     justify-content: center;
 }
 
@@ -32,27 +32,72 @@ body {
     width: 375px;
 }
 
+.icons {
+    font-size: 40px;
+    line-height: 30px;
+    width: 100%;
+}
+
+.jc-space-around {
+    justify-content: space-around;
+}
+
+.jc-space-between {
+    justify-content: space-between;
+}
+
+.jc-space-evenly {
+    justify-content: space-evenly;
+}
+
 .row {
     display: flex;
     flex-flow: row wrap;
     margin: auto;
-    width: 99%;
+    width: 100%;
 }
 
-.space-around {
-    justify-content: space-around;
+/* IDs */
+#email-address {
+    display: inline;
+    background-color: #f7f7f7;
+    border: 1px solid;
+    border-color: #868e9f #6b7487 #555b6a;
+    box-shadow: inset 1px 1px 6px #aaa;
+    font-size: 16px;
+    height: 100%;
+    margin: 0;
+    outline: none !important;
+    padding: 5px;
+    resize: none;
+    width: 70%;
 }
 
-.space-between {
-    justify-content: space-between;
+#email-address::placeholder,
+#email-address::-ms-input-placeholder {
+    color: #bfc3cc;
 }
 
-.space-evenly {
-    justify-content: space-evenly;
+#footer {
+    border-top: 2px solid;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-image: radial-gradient(circle at center, #bbb, #111);
+    border-image-slice: 1;
+    margin: 20px 5px;
+}
+
+#socials {
+    width: 100%;
+}
+
+#subscribe {
+    width: 100%;
+    height: 40px;
 }
 
 /* Classes */
-
 .bkg-glass {
     background-color: #000;
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, .65)), url("../images/black_glass.jpg");
@@ -73,11 +118,11 @@ body {
     cursor: pointer;
     font-family: 'Special Elite', sans-serif;
     height: 47px;
-    line-height: 45px;
+    line-height: 47px;
     margin: 15px auto;
     text-shadow: 0 0 0 #000;
     transition: all 0.25s ease-in-out;
-    width: 310px;
+    width: 330px;
 }
 
 .button:hover,
@@ -89,11 +134,24 @@ body {
 
 .copyright {
     font-size: 12px;
-    margin: 35px;
+    margin: 15px;
 }
 
 .hidden {
     display: none !important;
+}
+
+.newsletter {
+    width: 95% !important;
+    margin: 20px auto !important;
+    font-size: 17px !important;
+}
+
+.newsletter span {
+    width: 100%;
+    text-align: justify;
+    margin-bottom: 5px;
+    position: relative;
 }
 
 .pentup-logo {
@@ -101,4 +159,24 @@ body {
     margin: 10px;
     width: 225px;
     z-index: 0;
+}
+
+.social-icon {
+    height: 45px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    border: 1px solid;
+    border-color: #868e9f #6b7487 #555b6a;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    color: #f7f7f7;
+    cursor: pointer;
+    font-size: 16px;
+    height: 100%;
+    line-height: 35px;
+    outline: none !important;
+    text-shadow: 0 0 0 #000;
+    width: 30%;
 }

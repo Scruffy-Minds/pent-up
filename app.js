@@ -1,23 +1,25 @@
-const port = '3786';
+const port = process.env.PORT || 3786
 const siteName = 'Pent Up!';
 
 require('dotenv').config();
 const path = require('path');
 const express = require('express');
-const bodyParser = require('body-parser');
+const request = require('request');
+// const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const { query } = require('express');
 // const nodemailer = require('nodemailer');
 const app = express();
 const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
+const linkData = require('./public/javascript/qr_data.json');
 
 app.use(redirectSSL.create({
-    exclude: ['localhost']
+    exclude: ['localhost:3786']
 }));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+app.use(express.json())
 app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
@@ -26,25 +28,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/qr', (req, res) => {
-    const data = require('./public/javascript/qr_data.json');  
     const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',
         styles: 'qr.css',
-        sites: data.sites,
-        news: data.news
+        sites: linkData.sites,
+        news: linkData.news
     });
 });
 
 app.get('/press', (req, res) => {
-    const data = require('./public/javascript/qr_data.json');
     const title = `Pent Up! | Press Kit`;
     res.render('press', {
         title: title,
         script: 'press.js',
         styles: 'press.css',
-        sites: data.sites
+        sites: linkData.sites
     });
 });
 
@@ -53,44 +53,24 @@ app.get('/dates', (req, res) => {
     res.render('dates', {
         title: title,
         script: 'dates.js',
-        styles: 'dates.css'
+        styles: 'dates.css',
+        sites: linkData.sites
     });
 });
 
 app.get('/api/dates', async (req, res) => {
-    // --------------- Disable the follow code when testing to avoid excessive API calls
+    const apiCall = (type) => `https://api.songkick.com/api/3.0/artists/10191154/${type}.json?apikey=${process.env.SK_API}`;
     try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/calendar.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
+    Promise.allSettled([fetch(apiCall('calendar')).then(data => data.json()), fetch(apiCall('gigography')).then(data => data.json())])
+        .then(data => res.send(data[0].value.resultsPage.results.event.concat(data[1].value.resultsPage.results.event)));
     } catch (err) {
         console.log('error: ', err);
     }
 
-    // --------------- Activate this code when testing to avoid excessive API calls
-    // const filedata = require('./public/javascript/songkick_calendar.json');
-    // const results = filedata.resultsPage.results;
-    // setTimeout((() => {
-    //     res.send(results);
-    // }), 1000);
-});
-
-app.get('/api/pastdates', async (req, res) => {
-    // --------------- Disable the follow code when testing to avoid excessive API calls
-    try {
-        await fetch(`https://api.songkick.com/api/3.0/artists/10191154/gigography.json?apikey=${process.env.SK_API}`)
-            .then(res => res.json())
-            .then(data => res.send(data.resultsPage.results));
-    } catch (err) {
-        console.log('error: ', err);
-    }
-
-    // --------------- Enable the follow code when testing to avoid excessive API calls
-    // const filedata = require('./public/javascript/songkick_gigiography.json');
-    // const results = filedata.resultsPage.results;
-    // setTimeout((() => {
-    //     res.send(results);
-    // }), 1200);
+    // --------------- Activate this code and comment out original when testing to avoid excessive API calls
+    // const current = require('./public/javascript/songkick_calendar.json');
+    // const past = require('./public/javascript/songkick_gigiography.json');
+    // setTimeout((() => res.send(current.resultsPage.results.event.concat(past.resultsPage.results.event))), 300);
 });
 
 app.get('/api/venue-details/:venueId', async (req, res) => {
@@ -103,7 +83,22 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || port, function () {
+app.post('/subscribe', (req, res) => {
+    const options = {
+        url: `https://${process.env.MC_INSTANCE}.api.mailchimp.com/3.0/lists/${process.env.MC_LIST_ID}`,
+        method: `POST`,
+        headers: {
+            Authorization: `auth ${process.env.MC_API_KEY}`
+        },
+        body: JSON.stringify({members: [{email_address: req.body.email, status: 'subscribed'}]})
+    }
+    request(options, (err, response, body) => {
+        if (err) res.sendStatus(400);
+        else (response.statusCode === 200) ? res.sendStatus(200) : res.sendStatus(418);
+    });
+});
+
+app.listen(port, function () {
     const startTime = new Date();
     const options = {
         hour: 'numeric',

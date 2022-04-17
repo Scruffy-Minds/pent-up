@@ -24,17 +24,10 @@ p {
     display: none !important;
 }
 
-.icons {
-    font-size: 40px;
-    line-height: 30px;
-    margin: 10px auto 5px auto;
-    width: 310px;
-}
-
 .listen-btn {
     display: block;
     margin: 5px 5px;
-    max-width: 150px;
+    max-width: 165px;
 }
 
 .more {
@@ -43,11 +36,6 @@ p {
     font-size: .75em;
     margin-top: 5px;
     text-shadow: 1px 1px 5px #000;
-}
-
-.social-icon {
-    height: 40px;
-    cursor: pointer;
 }
 
 .news span {

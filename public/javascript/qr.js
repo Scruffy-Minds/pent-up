@@ -1,7 +1,3 @@
-window.dataLayer = window.dataLayer || [];
-const d = document;
-const store = [{ streamersExpanded: false }];
-
 d.querySelector('.more').addEventListener('click', () => {
     const streamers = Array.from(d.querySelectorAll('.listen-btn'));
     if (store.streamersExpanded === true) {
