@@ -102,6 +102,7 @@ p {
 
 .download {
     color: #fff;
+    margin: auto;
 }
 
 .download a:link,

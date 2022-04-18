@@ -67,12 +67,14 @@
         </div>
     </div>
 
-    <div class="row jc-center">
+    <div class="row center">
         <p class="download"><a href="/downloads/pent_up_press_kit_2022-03-11.pdf" download>Download PDF</a></p>
     </div>
     
-    <%- include('partials/socials'); -%>
-    <%- include('partials/copyright'); -%>
+    <div id="socials" class="row space-around icons">
+        <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
+    <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
 
+</div>
 </body>
 </html>
