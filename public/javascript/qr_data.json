@@ -67,6 +67,7 @@
             "url": "https://www.reverbnation.com/pentup",
             "type": "website",
             "target": "_blank",
+            "alt": "ReverbNation",
             "active": true
         },
         {
@@ -75,6 +76,7 @@
             "url": "https://www.facebook.com/pentup.band/",
             "type": "social",
             "target": "_blank",
+            "alt": "Facebook",
             "active": true
         },
         {
@@ -83,14 +85,26 @@
             "url": "https://www.instagram.com/pent_up_band/",
             "type": "social",
             "target": "_blank",
+            "alt": "Instagram",
             "active": true
         },
+        {
+            "name": "iHeartRadio",
+            "id": "iheartradio",
+            "url": "https://www.iheart.com/artist/pent-up-34534708/",
+            "type": "streaming",
+            "target": "_blank",
+            "alt": "Listen on iHeartRadio",
+            "active": true
+        },
+
         {
             "name": "Twitter",
             "id": "twitter",
             "url": "https://twitter.com/PentUpRock",
             "type": "social",
             "target": "_blank",
+            "alt": "Twitter",
             "active": true
         },
         {
@@ -99,6 +113,7 @@
             "url": "https://www.youtube.com/channel/UCHd5r2W_8tvglPx4LJ4yKdA",
             "type": "social",
             "target": "_blank",
+            "alt": "YouTube",
             "active": true
         },
         {
@@ -135,6 +150,15 @@
             "type": "streaming",
             "target": "_blank",
             "alt": "Listen on Tidal",
+            "active": true
+        },
+        {
+            "name": "Quobuz",
+            "id": "qobuz",
+            "url": "https://www.qobuz.com/us-en/interpreter/pent-up/download-streaming-albums",
+            "type": "streaming",
+            "target": "_blank",
+            "alt": "Listen on Quobuz",
             "active": true
         },
         {
