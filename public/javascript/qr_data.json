@@ -27,6 +27,15 @@
             "active": true
         },
         {
+            "name": "Boomplay",
+            "id": "boomplay",
+            "url": "https://www.boomplay.com/artists/42134786",
+            "type": "streaming",
+            "target": "_blank",
+            "alt": "Listen on Boomplay",
+            "active": true
+        },
+        {
             "name": "Official Website",
             "id": "website",
             "url": "http://www.pentup.band",
