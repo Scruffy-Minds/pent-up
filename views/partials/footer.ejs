@@ -9,10 +9,18 @@
             </div>
             <div id="socials" class="row footer-tile icons">
                 <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
-                <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
+                <%- 
+                `<a href="${v.url}" target="${v.target}" style="order: ${i};">
+                    <picture>
+                        <source srcset="/images/icons/socials/${v.id}.webp" type="image/webp">
+                        <img id="${v.id}" class="social-icon" src="/images/icons/socials/${v.id}.png" alt="${v.name}">
+                    </picture>
+                </a>
+                `%><%})%>
             </div>
             <div class="row copyright jc-center footer-tile"><% const thisYear = new Date().getFullYear(); %>
                 <span>&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
             </div>
             
         </section>
+        

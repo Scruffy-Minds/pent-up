@@ -6,7 +6,10 @@
         <div class="row page">
             <div class="column left">
                     <div class="header">
-                        <img class="pentup-logo" src="/images/pent_up_logo_dark.png" alt="Pent Up!">
+                        <picture>
+                            <source srcset="/images/pent_up_logo_dark.webp" type="image/webp">
+                            <img class="pentup-logo" src="/images/pent_up_logo_dark.png" alt="Pent Up!">
+                        </picture>
                     </div>
                     <div class="artist-info">
                         <p class="heading">Artist Info</p>
@@ -21,7 +24,12 @@
                             <p><span class="bold">Nate Oelrich:</span> Drums & Backing Vox</p>
                             <p><span class="bold">Jay Barrett:</span> Bass & Backing Vox</p>
                             <p class="heading">Self-Titled [Single]</p>
-                            <a href="https://open.spotify.com/album/1C6JopXSxtcQ5nDeDLRP5i?si=bd74S8efQya0N5ErN4C-2w" target="_blank"> <img src="/images/self-titled_single_cover.png" alt="Self-Titled" class="album-art"></a>
+                            <a href="https://open.spotify.com/album/1C6JopXSxtcQ5nDeDLRP5i?si=bd74S8efQya0N5ErN4C-2w" target="_blank">
+                                <picture>
+                                    <source srcset="/images/self-titled_single_cover.webp" type="image/webp">
+                                    <img src="/images/self-titled_single_cover.png" alt="Self-Titled" class="album-art">
+                                </picture>
+                            </a>
                             <span class="stream">[&nbsp;<a href="https://open.spotify.com/album/1C6JopXSxtcQ5nDeDLRP5i?si=bd74S8efQya0N5ErN4C-2w" target="_blank">Spotify</a>&nbsp;|&nbsp;<a href="https://music.apple.com/us/album/self-titled-single/1613297938" target="_blank">Apple Music</a>&nbsp;]</span>
                             <p><span class="bold">Release Date:</span> March 11th, 2022</p>
                             <p>Distribution via DistroKid, available on all major streaming platforms.</p>
@@ -30,7 +38,10 @@
             </div>
             <div class="column right">
                 <div class="header">
-                    <img src="/images/pent_up_band_photo.jpg" alt="Pent Up!" class="band-photo">
+                    <picture>
+                        <source srcset="/images/pent_up_band_photo.webp" type="image/webp">
+                        <img src="/images/pent_up_band_photo.jpg" alt="Pent Up!" class="band-photo">
+                    </picture>
                 </div>
                 <div class="artist-bio">
                     <p>Pent Up! was born in 2021 amid the boredom and
@@ -73,8 +84,13 @@
     
     <div id="socials" class="row space-around icons">
         <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
-    <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
-
+        <%-` <a href="${v.url}" target="${v.target}" style="order: ${i};">
+            <picture>
+                <source srcset="/images/icons/socials/${v.id}.webp" type="image/webp">
+                <img id="${v.id}" class="social-icon" src="/images/icons/socials/${v.id}.png" alt="${v.name}">
+            </picture>
+        </a>
+        `%><%})%>
 </div>
 </body>
 </html>
