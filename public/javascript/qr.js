@@ -1,3 +1,19 @@
+function toggleHidden(element) {
+    const isPrimary = ((Array.from(element.classList)).find(e => e === 'primary') === 'primary') ? true : false;
+    if (isPrimary != true) element.classList.toggle('hidden');
+}
+
+function adjustStreamingWidth() {
+    const third = d.querySelector('#streaming :nth-child(3) img');
+    if (d.getElementById('streaming').offsetWidth >= 550 || window.matchMedia("(orientation: landscape)").matches) {
+        third.classList.remove('hidden');
+        third.classList.add('primary');
+    } else {
+        third.classList.add('hidden');
+        third.classList.remove('primary');
+    }
+}
+
 d.querySelector('.more').addEventListener('click', () => {
     const streamers = Array.from(d.querySelectorAll('.listen-btn'));
     if (store.streamersExpanded === true) {
@@ -12,7 +28,8 @@ d.querySelector('.more').addEventListener('click', () => {
         });
 });
 
-function toggleHidden(element) {
-    const isPrimary = ((Array.from(element.classList)).find(e => e === 'primary') === 'primary') ? true : false;
-    if (isPrimary != true) element.classList.toggle('hidden');
-}
+window.addEventListener('resize', function (event) {
+    adjustStreamingWidth();
+}, true);
+
+adjustStreamingWidth();

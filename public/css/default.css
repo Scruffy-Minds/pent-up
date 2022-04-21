@@ -33,8 +33,6 @@ body {
 }
 
 .icons {
-    font-size: 40px;
-    line-height: 30px;
     width: 100%;
 }
 
@@ -79,6 +77,8 @@ body {
 }
 
 #footer {
+    display: flex;
+    flex-direction: column;
     border-top: 2px solid;
     border-right: 0;
     border-bottom: 0;
@@ -90,6 +90,11 @@ body {
 
 #socials {
     width: 100%;
+    justify-content: space-around;
+}
+
+#streaming {
+    width: 375px;
 }
 
 #subscribe {
@@ -132,7 +137,7 @@ body {
     text-shadow: 0 0 10px #555c6a !important;
 }
 
-.copyright {
+.copyright span {
     font-size: 12px;
     margin: 15px;
 }
@@ -142,7 +147,7 @@ body {
 }
 
 .newsletter {
-    width: 95% !important;
+    /* width: 95% !important; */
     margin: 20px auto !important;
     font-size: 17px !important;
 }
@@ -180,3 +185,219 @@ body {
     text-shadow: 0 0 0 #000;
     width: 30%;
 }
+
+
+/* iPhone X Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+    .container {
+        width: 100% !important;
+    }
+    
+    #streaming {
+        width: 600px !important;
+    }
+
+    #footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #footer div {
+        /* border: 1px solid #fff; */
+        padding: 0 !important;
+    }
+
+    #footer .social-icon {
+        height: 35px;
+    }
+
+    .footer-tile {
+        height: 70px;
+        align-items: flex-end;
+    }
+
+    .copyright {
+        height: 30px;
+    }
+
+    #socials {
+        /* border: 1px solid white; */
+        width: 35% !important;
+    }
+
+    .newsletter {
+        width: 60%;
+    }
+}
+
+/* Small phone screen sizes, from 0 to 320px */
+@media only screen and (min-width: 320px) {
+    .container {
+        width: 310px;
+    }
+
+    #footer {
+        width: 95%;
+    }
+
+    .button {
+        width: 290px;
+    }
+
+    .listen-btn {
+        width: 140px;
+    }
+
+    #streaming {
+        width: 310px;
+    }
+}
+
+@media only screen and (min-width: 375px) {
+    .container {
+        width: 375px;
+    }
+
+    .button {
+     width: 330px;
+    }
+
+    .listen-btn {
+        width: 160px;
+    }
+
+    #streaming {
+        width: 375px;
+    }
+
+}
+
+/* Small phone screen sizes, from 0 to 480px */
+@media only screen and (min-width: 480px) {
+    .container {
+        width: 480px;
+    }
+
+
+
+}
+
+
+/* SCREEN SIZE LESS THAN 767PX */
+@media only screen and (min-width: 767px) {
+    .container {
+        width: 750px;
+    }
+    #streaming {
+        width: 550px;
+    }
+}
+
+
+/* SCREEN SIZE LESS THAN 920PX */
+@media only screen and (min-width: 920px) {
+    #footer {
+        flex-direction: row;
+        padding: 0 25px;
+        justify-content: space-around;
+    }
+
+    #footer div {
+        padding: 10px;
+    }
+    
+    #footer :nth-child(1) {
+        order: 1;
+    }
+    
+    #footer :nth-child(2) {
+        order: 3;
+    }
+    
+    #footer :nth-child(3) {
+        order: 2;
+    }
+
+    #footer #subscribe {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    #footer #socials {
+        justify-content: center;
+        padding: 0 25px 5px;
+    }
+
+    #footer .footer-tile {
+        padding-top: 15px;
+        height: 80px;
+        align-items: flex-end;
+        display: flex;
+        align-self: flex-end;
+    }
+
+    #footer .newsletter {
+        padding-bottom: 10px;
+        margin: 0 !important;
+    }
+
+    #footer .newsletter span {
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+
+    #footer .social-icon {
+        height: 30px;
+        padding: 0 8px;
+    }
+
+    #footer .submit-btn {
+        line-height: 25px;
+    }
+    
+    .container {
+        width: 920px;
+    }
+
+    .copyright span {
+        margin: 0;
+    }
+}
+
+
+/* SCREEN SIZE LESS THAN 1024PX */
+@media only screen and (min-width: 1024px) {
+    .container {
+        width: 1024px;
+    }
+
+}
+
+/* SCREEN SIZE LESS THAN 1080PX */
+@media only screen and (min-width: 1079px) {
+    .container {
+        /* display: flex;
+        flex-flow: column wrap;
+        margin: auto;
+        text-align: center; */
+        width: 1079px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        /* display: flex;
+        flex-flow: column wrap;
+        margin: auto;
+        text-align: center; */
+        width: 1200px;
+    }
+}
+
+
+
+
+
+
+
+

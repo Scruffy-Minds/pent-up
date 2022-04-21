@@ -13,9 +13,9 @@ const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
 const linkData = require('./public/javascript/qr_data.json');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost:3786']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
