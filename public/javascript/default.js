@@ -4,8 +4,8 @@ const store = [{
     streamersExpanded: false
 }];
 
-const newsletterSignupForm = document.getElementById('subscribe')
-newsletterSignupForm.addEventListener('submit', handleNewsletterSubscription);
+const newsletterSignupForm = document.getElementById('subscribe');
+if (newsletterSignupForm) newsletterSignupForm.addEventListener('submit', handleNewsletterSubscription);
 
 function handleNewsletterSubscription(event) {
     event.preventDefault();
@@ -14,7 +14,7 @@ function handleNewsletterSubscription(event) {
     const validateEmail = (value) => { // Validate email address
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(value.trim());
-    }
+    };
 
     if (validateEmail(addy)) {
         fetch(event.currentTarget.action, {
@@ -28,10 +28,10 @@ function handleNewsletterSubscription(event) {
                 if (res.status === 200) {
                     alert(`You've been subscribed at ${addy}!`);
                     clearField();
-                } else alert(`Something went wrong, please contact us to subscribe.`)
+                } else alert(`Something went wrong, please contact us to subscribe.`);
             });
     } else {
-        alert('Please enter a valid email address.')
+        alert('Please enter a valid email address.');
         clearField();
-    };
+    }
 }

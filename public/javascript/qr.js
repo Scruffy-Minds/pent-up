@@ -1,17 +1,9 @@
+const third = d.querySelector('#streaming :nth-child(3) img').classList;
+
+
 function toggleHidden(element) {
     const isPrimary = ((Array.from(element.classList)).find(e => e === 'primary') === 'primary') ? true : false;
     if (isPrimary != true) element.classList.toggle('hidden');
-}
-
-function adjustStreamingWidth() {
-    const third = d.querySelector('#streaming :nth-child(3) img');
-    if (d.getElementById('streaming').offsetWidth >= 550) {
-        third.classList.remove('hidden');
-        third.classList.add('primary');
-    } else {
-        third.classList.add('hidden');
-        third.classList.remove('primary');
-    }
 }
 
 d.querySelector('.more').addEventListener('click', () => {
@@ -28,8 +20,20 @@ d.querySelector('.more').addEventListener('click', () => {
         });
 });
 
-window.addEventListener('resize', function (event) {
-    adjustStreamingWidth();
+window.addEventListener('resize', (event) => {
+    if (d.getElementById('streaming').offsetWidth < 550) {
+        third.remove('primary');
+        if (store.streamersExpanded === true) {
+            third.remove('hidden');
+        } else third.add('hidden');
+    }
+    if (d.getElementById('streaming').offsetWidth >= 550) {
+        third.add('primary');
+        third.remove('hidden');
+    }
 }, true);
 
-adjustStreamingWidth();
+if (d.getElementById('streaming').offsetWidth >= 550) {
+    third.remove('hidden');
+    third.add('primary');
+}

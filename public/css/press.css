@@ -5,7 +5,7 @@ a:link,
 a:visited {
     color: #000;
     text-decoration: none;
-        border-bottom: 1px dotted #bbb;
+    border-bottom: 1px dotted #bbb;
 }
 
 a:hover,
@@ -24,9 +24,13 @@ p {
     margin: 1.8px 0;
 }
 
+picture {
+    text-align: center;
+}
+
 #socials {
     margin: 35px auto 0;
-    width: 275px;
+    width: 250px;
     justify-content: space-around;
 }
 
@@ -48,7 +52,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 15px;
+    margin: 5px 0;
 }
 
 .artist-bio {
@@ -61,16 +65,17 @@ p {
 }
 
 .artist-info {
-    padding: 0 10px 15px;
-    border: 1px solid #e6e6e6;
     background-color: #f3f2f2;
-    font-size: 0.8em;
+    border: 1px solid #e6e6e6;
     box-shadow: 0 8px 16px -12px black;
+    font-size: 0.8em;
+    padding: 0 10px 15px;
 }
 
 .band-photo {
     box-shadow: 0 8px 16px -8px black;
-    height: 230px;
+    display: inline-block;
+    width: 90%;
 }
 
 .bold {
@@ -85,6 +90,7 @@ p {
 .container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .column {
@@ -93,11 +99,10 @@ p {
     flex-direction: column;
 }
 
-
 .copyright {
     color: #fff;
     font-size: 12px;
-    margin: 35px;
+    margin: 35px auto;
 }
 
 .download {
@@ -116,10 +121,11 @@ p {
 }
 
 .header {
-    display: flex;
-    justify-content: center;
     align-items: center !important;
-    height: 250px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    justify-content: center !important;
 }
 
 .heading {
@@ -138,23 +144,25 @@ p {
 }
 
 .left {
-    width: 43%;
+    width: 95%;
+    margin-bottom: 5%;
 }
 
 .page {
     display: flex;
-    margin: 50px auto 5px;
+    margin: 5px auto 5px !important;
     background-color: #f7f7f7;
     border: 1px solid #e6e6e6;
-    padding: 20px;
+    padding: 5px;
 }
 
 .pentup-logo {
-    height: 250px;
+    height: 200px;
 }
 
 .right {
-    width: 57%;
+    width: 95%;
+    margin-bottom: 5%;
 }
 
 .row {
@@ -162,133 +170,105 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 800px;
+    width: 100%;
 }
 
 .social-icon {
-    height: 35px;
     cursor: pointer;
+    height: 35px;
 }
 
 .stream {
+    color: #666;
     display: flex;
     justify-content: center;
-    margin-bottom: 13px;    
-    color: #666;
+    margin-bottom: 13px;
 }
 
 .stream a {
     color: #3576b6;
 }
 
-/* Small phone screen sizes, from 0 to 480px */
-@media only screen and (max-width: 480px) {
-    .left {
-        width: 100%;
-    }
-
-    .right {
-        width: 100%;
-    }
-
-    .row {
-        width: 480px;
-    }
-
-}
-
 /* iPhone X Landscape */
 @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
-    .artist-bio {
-        font-size: 0.85em;
-    }
 
-    .page {
-        margin: 10px auto 5px !important;
-    }
-
-    .row {
-        width: 750px;
-    }
-}
-
-@media only screen and (min-device-width : 320) and (max-device-width : 568) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
-    .artist-bio {
-        font-size: 0.85em;
-    }
-
-    .page {
-        margin: 10px auto 5px !important;
-    }
-
-    .row {
-        width: 560px;
-    }
-}
-
-@media only screen and (max-width: 390px) {
     .artist-bio,
     .artist-info {
-        margin: 25px 0;
+        margin: 15px;
     }
 
     .header {
-        height: 220px;
-    }
-
-    .band-photo {
-        height: 190px;
-    }
-
-    .page {
-        margin: 10px auto 5px !important;
-    }
-
-    .pentup-logo {
-        height: 220px;
+        height: 250px;
     }
 
     .left {
-        width: 95%;
+        width: 43%;
+        margin-bottom: auto;
+    }
+
+    .page {
+        padding: 20px;
+    }
+
+    .pentup-logo {
+        height: 240px !important;
     }
 
     .right {
-        width: 95%;
-    }
-
-    .row {
-        width: 320px;
+        width: 57%;
+        margin-bottom: auto;
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (min-width: 320px) {}
+
+@media only screen and (min-width: 375px) {}
+
+@media only screen and (min-width: 480px) {
+    .pentup-logo {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+
     .artist-bio,
     .artist-info {
-        margin: 5px 0;
+        margin: 15px;
     }
 
-    .band-photo {
-        height: 160px;
+    .header {
+        height: 250px;
     }
 
     .left {
-        width: 95%;
+        width: 43%;
+        margin-bottom: auto;
     }
-    
+
     .page {
-        margin: 5px auto 5px !important;
-        padding: 5px;
+        padding: 20px;
     }
 
     .pentup-logo {
-        height: 200px;
+        height: 250px;
     }
-    
+
     .right {
-        width: 95%;
+        width: 57%;
+        margin-bottom: auto;
     }
 
     .row {
-        width: 300px;
+        width: 800px;
     }
 }
+
+@media only screen and (min-width: 920px) {}
+
+
+@media only screen and (min-width: 1024px) {}
+
+@media only screen and (min-width: 1079px) {}
+
+@media only screen and (min-width: 1200px) {}
