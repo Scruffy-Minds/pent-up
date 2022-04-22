@@ -10,27 +10,30 @@ hr {
 }
 
 /* IDs */
+#shows {
+    align-items: center;
+    width: 100%;
+}
+
 #current-shows,
 #past-shows {
-    width: 100%;
+    width: 90%;
+    font-size: .9em;
 }
 
 /* Classes */
 .col-date {
     justify-content: left;
-    margin: 1%;
     width: 16%;
 }
 
 .col-venue {
-    margin: 1%;
     text-align: left;
     width: 48%;
 }
 
 .col-location {
     justify-content: right !important;
-    margin: 1%;
     width: 30%;
 }
 
@@ -58,7 +61,7 @@ hr {
 }
 
 .event-age-limit img {
-    height: 25px;
+    height: 20px;
     margin-top: 3px;
 }
 
@@ -75,7 +78,7 @@ hr {
 
 .event-headers {
     display: flex;
-    font-size: 0.70em;
+    font-size: 0.75em;
 }
 
 .event-headers span {
@@ -90,7 +93,7 @@ hr {
 .event-info {
     display: flex;
     font-size: 0.79em;
-    height: 22px;
+    height: 20px;
     margin: 0;
     overflow: hidden;
 }
@@ -103,18 +106,18 @@ hr {
     border-color: #bfc3cc #d2d5db #e5e7ea;
     border: 1px solid;
     margin: 2px auto 10px;
+    padding: 0.5% 1.5%;
     text-shadow: 0 0 0 #000;
     width: 100%;
 }
 
 .event-tile div {
     line-height: 22px;
-    padding-left: 5px;
     text-align: left;
 }
 
 .event-venue {
-    font-size: 1.15em;
+    font-size: 1.05em;
     font-weight: 700;
 }
 
@@ -136,13 +139,13 @@ hr {
 }
 
 .sk-link img {
-    height: 25px;
+    height: 20px;
     margin-top: 3px;
 }
 
 .songkick {
     align-self: center;
-    height: 40px;
+    height: 30px;
     margin: 10px auto 15px;
 }
 
@@ -153,7 +156,6 @@ hr {
     border-left: 0;
     border-image: radial-gradient(circle at center, #bbb, #111);
     border-image-slice: 1;
-    font-size: 1.25em;
     margin-bottom: 12px;
     width: 80%;
 }
@@ -162,6 +164,7 @@ hr {
     align-self: flex-end;
     display: inline-block;
     font-family: 'Special Elite', sans-serif;
+    font-size: 1.15em;
     margin: 0 13px 3px 0;
 }
 
@@ -172,5 +175,99 @@ hr {
 }
 
 .toggle-arrow img {
-    width: 12px;
+    width: 10px;
 }
+
+/* iPhone X Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {}
+
+@media only screen and (min-width: 375px) {
+    #current-shows,
+    #past-shows {
+        width: 95%;
+    }
+
+    .event-age-limit img {
+        height: 25px;
+    }
+
+    .event-bands {
+        font-size: 1.1em;
+    }
+
+    .event-headers {
+        font-size: 0.90em;
+    }
+
+    .event-info {
+        height: 24px;
+        font-size: 0.8em;
+    }
+
+    .event-venue {
+        font-size: 1.1em;
+    }
+
+    .sk-link img {
+        height: 25px;
+    }
+
+    .songkick {
+        height: 40px;
+    }
+
+    .title span {
+        font-size: 1.45em;
+    }
+
+    .toggle-arrow img {
+        width: 12px;
+    }
+
+}
+
+/* Small phone screen sizes, from 0 to 480px */
+@media only screen and (min-width: 480px) {
+    #current-shows,
+    #past-shows {
+        width: 90%;
+    }
+
+    .event-headers {
+        font-size: 0.90em;
+    }
+
+    .event-info {
+        height: 26px;
+        font-size: 0.9em;
+    }
+
+    .title span {
+        font-size: 1.55em;
+    }
+}
+
+/* SCREEN SIZE MORE THAN 767PX */
+@media only screen and (min-width: 767px) {
+    #current-shows,
+    #past-shows {
+        width: 80%;
+    }
+}
+
+/* SCREEN SIZE MORE THAN 920PX */
+@media only screen and (min-width: 920px) {
+    #current-shows,
+    #past-shows {
+        width: 625px;
+    }
+}
+
+/* SCREEN SIZE MORE THAN 1024PX */
+@media only screen and (min-width: 1024px) {}
+
+/* SCREEN SIZE MORE THAN 1080PX */
+@media only screen and (min-width: 1079px) {}
+
+/* SCREEN SIZE MORE THAN 1080PX */
+@media only screen and (min-width: 1200px) {}

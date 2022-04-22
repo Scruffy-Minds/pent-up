@@ -45,7 +45,7 @@ function addListeners(arrows) {
 
 function generateTile(data) {
     const tile = `<div class="${data.eventId} event-tile column glow bkg-glass jc-space-around">
-                    <div class="event-info row jc-space-around">
+                    <div class="event-info row jc-space-between">
                         <span class="col-date event-date">${data.date}</span>
                         <span class="${data.eventId} col-venue event-venue">${data.venue.name}</span>
                         <span class="col-location event-location">${data.venue.city}, ${data.venue.state}</span>
@@ -135,14 +135,10 @@ function populateDates(data, target) {
                 <span class="col-location">Location</span>
             </div>`;
     const pastShows = `<div class="title row jc-center">
-                <span>Past shows</span>
+                <span>${(target === 'past-shows' ? 'Past Shows' : 'Current shows')}</span>
                 
             </div>`;
-    if (target === 'past-shows') {        
         dateTiles = dateTiles + pastShows + header;
-    } else {
-        dateTiles = dateTiles + header;
-    }
 
     if (data.length > 0) {
         data.forEach((v) => {
