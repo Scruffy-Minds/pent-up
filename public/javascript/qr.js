@@ -5,7 +5,7 @@ function toggleHidden(element) {
 
 function adjustStreamingWidth() {
     const third = d.querySelector('#streaming :nth-child(3) img');
-    if (d.getElementById('streaming').offsetWidth >= 550 || window.matchMedia("(orientation: landscape)").matches) {
+    if (d.getElementById('streaming').offsetWidth >= 550) {
         third.classList.remove('hidden');
         third.classList.add('primary');
     } else {

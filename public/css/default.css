@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Special+Elite&display=swap');
+
 /* Elements */
 * {
     box-sizing: border-box;
@@ -29,7 +30,7 @@ body {
     flex-flow: column wrap;
     margin: auto;
     text-align: center;
-    width: 375px;
+    width: 100%;
 }
 
 .icons {
@@ -57,11 +58,11 @@ body {
 
 /* IDs */
 #email-address {
-    display: inline;
     background-color: #f7f7f7;
     border: 1px solid;
     border-color: #868e9f #6b7487 #555b6a;
     box-shadow: inset 1px 1px 6px #aaa;
+    display: inline;
     font-size: 16px;
     height: 100%;
     margin: 0;
@@ -85,7 +86,9 @@ body {
     border-left: 0;
     border-image: radial-gradient(circle at center, #bbb, #111);
     border-image-slice: 1;
-    margin: 20px 5px;
+    margin: auto;
+    padding: 0 15px;
+
 }
 
 #socials {
@@ -93,9 +96,6 @@ body {
     justify-content: space-around;
 }
 
-#streaming {
-    width: 375px;
-}
 
 #subscribe {
     width: 100%;
@@ -147,7 +147,6 @@ body {
 }
 
 .newsletter {
-    /* width: 95% !important; */
     margin: 20px auto !important;
     font-size: 17px !important;
 }
@@ -189,21 +188,12 @@ body {
 
 /* iPhone X Landscape */
 @media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
-    .container {
-        width: 100% !important;
-    }
-    
-    #streaming {
-        width: 600px !important;
-    }
-
     #footer {
         flex-direction: row;
         flex-wrap: wrap;
     }
 
     #footer div {
-        /* border: 1px solid #fff; */
         padding: 0 !important;
     }
 
@@ -221,7 +211,6 @@ body {
     }
 
     #socials {
-        /* border: 1px solid white; */
         width: 35% !important;
     }
 
@@ -231,67 +220,19 @@ body {
 }
 
 /* Small phone screen sizes, from 0 to 320px */
-@media only screen and (min-width: 320px) {
-    .container {
-        width: 310px;
-    }
-
-    #footer {
-        width: 95%;
-    }
-
-    .button {
-        width: 290px;
-    }
-
-    .listen-btn {
-        width: 140px;
-    }
-
-    #streaming {
-        width: 310px;
-    }
-}
+@media only screen and (min-width: 320px) {}
 
 @media only screen and (min-width: 375px) {
-    .container {
-        width: 375px;
-    }
-
     .button {
-     width: 330px;
+        width: 330px;
     }
-
-    .listen-btn {
-        width: 160px;
-    }
-
-    #streaming {
-        width: 375px;
-    }
-
 }
 
 /* Small phone screen sizes, from 0 to 480px */
-@media only screen and (min-width: 480px) {
-    .container {
-        width: 480px;
-    }
-
-
-
-}
-
+@media only screen and (min-width: 480px) {}
 
 /* SCREEN SIZE LESS THAN 767PX */
-@media only screen and (min-width: 767px) {
-    .container {
-        width: 750px;
-    }
-    #streaming {
-        width: 550px;
-    }
-}
+@media only screen and (min-width: 767px) {}
 
 
 /* SCREEN SIZE LESS THAN 920PX */
@@ -305,15 +246,15 @@ body {
     #footer div {
         padding: 10px;
     }
-    
+
     #footer :nth-child(1) {
         order: 1;
     }
-    
+
     #footer :nth-child(2) {
         order: 3;
     }
-    
+
     #footer :nth-child(3) {
         order: 2;
     }
@@ -329,21 +270,20 @@ body {
     }
 
     #footer .footer-tile {
-        padding-top: 15px;
-        height: 80px;
         align-items: flex-end;
         display: flex;
-        align-self: flex-end;
+        height: 80px;
+        padding-top: 15px;
     }
 
     #footer .newsletter {
-        padding-bottom: 10px;
         margin: 0 !important;
+        padding-bottom: 10px;
     }
 
     #footer .newsletter span {
-        margin-bottom: 0;
         font-size: 16px;
+        margin-bottom: 0;
     }
 
     #footer .social-icon {
@@ -354,50 +294,28 @@ body {
     #footer .submit-btn {
         line-height: 25px;
     }
-    
-    .container {
-        width: 920px;
-    }
 
     .copyright span {
         margin: 0;
     }
 }
 
-
 /* SCREEN SIZE LESS THAN 1024PX */
 @media only screen and (min-width: 1024px) {
     .container {
         width: 1024px;
     }
-
 }
 
 /* SCREEN SIZE LESS THAN 1080PX */
 @media only screen and (min-width: 1079px) {
     .container {
-        /* display: flex;
-        flex-flow: column wrap;
-        margin: auto;
-        text-align: center; */
         width: 1079px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .container {
-        /* display: flex;
-        flex-flow: column wrap;
-        margin: auto;
-        text-align: center; */
         width: 1200px;
     }
 }
-
-
-
-
-
-
-
-
