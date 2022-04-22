@@ -6,8 +6,11 @@
     <div class="container">
 
         <div class="row jc-space-around">
-            <a href="/" target="_blank">
-                <img class="pentup-logo" src="/images/pent_up_logo_transparent.png" alt="Pent Up!">
+            <a href="/">
+                <picture>
+                    <source srcset="/images/pent_up_logo.webp" type="image/webp">
+                    <img class="pentup-logo" src="/images/pent_up_logo.png" alt="Pent Up!">
+                </picture>
             </a>
         </div>
 
@@ -17,7 +20,15 @@
 
         <div id="streaming" class="row jc-center">
             <%const streamers = sites.filter(x => x.type === 'streaming'); streamers.forEach((v, i, a) => { if(v.active === true) { const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
-            <%-`<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="listen-btn bkg-glass glow button${primary}" src="/images/buttons/${v.id}_btn.png" alt="Listen on ${v.name}"></a>`%><%}});%>
+            <%-
+            `<a href="${v.url}" target="${v.target}">
+                <picture>
+                    <source srcset="/images/buttons/streamers/${v.id}_btn.webp" type="image/webp">
+                    <img id="${v.id}" class="listen-btn bkg-glass glow button${primary}"
+                        src="/images/buttons/streamers/${v.id}_btn.png" alt="Listen on ${v.name}">
+                </picture>
+            </a>`
+            %><%}});%>
             <span class="more row jc-center">Tap here for more streaming services</span>
         
         </div>
@@ -27,12 +38,8 @@
             <%- `<a href="${v.url}" target="${v.target}"><div class="bkg-glass glow button" id="${v.id}"><span>${v.name}</span></div></a>`%><%}%><%})%>
         
         </div>
-
-
-
-
-
         <%- include('partials/footer'); -%>
     </div>
+
 </body>
 </html>

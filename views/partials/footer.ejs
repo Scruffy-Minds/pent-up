@@ -1,18 +1,26 @@
-        <section id="footer" class="column">
+        <section id="footer">
             
-            <div class="row jc-center newsletter">
+            <div class="row footer-tile jc-center newsletter">
                 <span>Subscribe to our newsletter</span>
                 <form id="subscribe" class="row" action="/subscribe" method="POST">
                     <input type="text" id="email-address" name="email" placeholder="Email address" value="" required>
                     <input id="submit" type="submit" class="submit-btn bkg-glass" value="Subscribe"></input>
                 </form>
             </div>
-            <div id="socials" class="row jc-space-around icons">
+            <div id="socials" class="row footer-tile icons">
                 <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
-                <%- `<a href="${v.url}" target="${v.target}"><img id="${v.id}" class="social-icon" src="/images/icons/icon-${v.id}.png" alt="${v.name}"></a>`%><%})%>
+                <%- 
+                `<a href="${v.url}" target="${v.target}" style="order: ${i};">
+                    <picture>
+                        <source srcset="/images/icons/socials/${v.id}.webp" type="image/webp">
+                        <img id="${v.id}" class="social-icon" src="/images/icons/socials/${v.id}.png" alt="${v.name}">
+                    </picture>
+                </a>
+                `%><%})%>
             </div>
-            <div class="row jc-center"><% const thisYear = new Date().getFullYear(); %>
-                <span class="copyright">&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
+            <div class="row copyright jc-center footer-tile"><% const thisYear = new Date().getFullYear(); %>
+                <span>&copy;<%- thisYear %>, Pent Up! All rights reserved.</span>
             </div>
             
         </section>
+        

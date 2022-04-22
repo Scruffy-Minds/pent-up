@@ -11,7 +11,7 @@ const ejs = require('ejs');
 const app = express();
 const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
-const linkData = require('./public/javascript/qr_data.json');
+const linkData = require('./public/javascript/link_data.json');
 
 app.use(redirectSSL.create({
     exclude: ['localhost:3786']
@@ -42,7 +42,6 @@ app.get('/press', (req, res) => {
     const title = `Pent Up! | Press Kit`;
     res.render('press', {
         title: title,
-        script: 'press.js',
         styles: 'press.css',
         sites: linkData.sites
     });

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&family=Special+Elite&display=swap');
+
 /* Elements */
 * {
     box-sizing: border-box;
@@ -29,12 +30,10 @@ body {
     flex-flow: column wrap;
     margin: auto;
     text-align: center;
-    width: 375px;
+    width: 100%;
 }
 
 .icons {
-    font-size: 40px;
-    line-height: 30px;
     width: 100%;
 }
 
@@ -59,11 +58,11 @@ body {
 
 /* IDs */
 #email-address {
-    display: inline;
     background-color: #f7f7f7;
     border: 1px solid;
     border-color: #868e9f #6b7487 #555b6a;
     box-shadow: inset 1px 1px 6px #aaa;
+    display: inline;
     font-size: 16px;
     height: 100%;
     margin: 0;
@@ -79,18 +78,24 @@ body {
 }
 
 #footer {
+    display: flex;
+    flex-direction: column;
     border-top: 2px solid;
     border-right: 0;
     border-bottom: 0;
     border-left: 0;
     border-image: radial-gradient(circle at center, #bbb, #111);
     border-image-slice: 1;
-    margin: 20px 5px;
+    margin: auto;
+    padding: 0 15px;
+
 }
 
 #socials {
     width: 100%;
+    justify-content: space-around;
 }
+
 
 #subscribe {
     width: 100%;
@@ -132,7 +137,7 @@ body {
     text-shadow: 0 0 10px #555c6a !important;
 }
 
-.copyright {
+.copyright span {
     font-size: 12px;
     margin: 15px;
 }
@@ -142,7 +147,6 @@ body {
 }
 
 .newsletter {
-    width: 95% !important;
     margin: 20px auto !important;
     font-size: 17px !important;
 }
@@ -179,4 +183,139 @@ body {
     outline: none !important;
     text-shadow: 0 0 0 #000;
     width: 30%;
+}
+
+
+/* iPhone X Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+    #footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #footer div {
+        padding: 0 !important;
+    }
+
+    #footer .social-icon {
+        height: 35px;
+    }
+
+    .footer-tile {
+        height: 70px;
+        align-items: flex-end;
+    }
+
+    .copyright {
+        height: 30px;
+    }
+
+    #socials {
+        width: 35% !important;
+    }
+
+    .newsletter {
+        width: 60%;
+    }
+}
+
+/* Small phone screen sizes, from 0 to 320px */
+@media only screen and (min-width: 320px) {}
+
+@media only screen and (min-width: 375px) {
+    .button {
+        width: 330px;
+    }
+}
+
+/* Small phone screen sizes, from 0 to 480px */
+@media only screen and (min-width: 480px) {}
+
+/* SCREEN SIZE LESS THAN 767PX */
+@media only screen and (min-width: 767px) {}
+
+
+/* SCREEN SIZE LESS THAN 920PX */
+@media only screen and (min-width: 920px) {
+    #footer {
+        flex-direction: row;
+        padding: 0 25px;
+        justify-content: space-around;
+    }
+
+    #footer div {
+        padding: 10px;
+    }
+
+    #footer :nth-child(1) {
+        order: 1;
+    }
+
+    #footer :nth-child(2) {
+        order: 3;
+    }
+
+    #footer :nth-child(3) {
+        order: 2;
+    }
+
+    #footer #subscribe {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    #footer #socials {
+        justify-content: center;
+        padding: 0 0 5px;
+    }
+
+    #footer .footer-tile {
+        align-items: flex-end;
+        display: flex;
+        height: 80px;
+        padding-top: 15px;
+    }
+
+    #footer .newsletter {
+        margin: 0 !important;
+        padding-bottom: 10px;
+    }
+
+    #footer .newsletter span {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    #footer .social-icon {
+        height: 30px;
+        padding: 0 8px;
+    }
+
+    #footer .submit-btn {
+        line-height: 25px;
+    }
+
+    .copyright span {
+        margin: 0;
+    }
+}
+
+/* SCREEN SIZE LESS THAN 1024PX */
+@media only screen and (min-width: 1024px) {
+    .container {
+        width: 1024px;
+    }
+}
+
+/* SCREEN SIZE LESS THAN 1080PX */
+@media only screen and (min-width: 1079px) {
+    .container {
+        width: 1079px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
 }

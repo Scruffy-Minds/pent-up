@@ -1,95 +1,21 @@
-/* Small phone screen sizes, from 0 to 320px */
-
-
-/* SCREEN SIZE LESS THAN 1080PX */
-@media only screen and (max-width: 1079px) {
-    .container {
-        width: 1079px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
-
-/* SCREEN SIZE LESS THAN 1024PX */
-@media only screen and (max-width: 1024px) {
-    .container {
-        width: 1024px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
-
-/* SCREEN SIZE LESS THAN 920PX */
-@media only screen and (max-width: 920px) {
-    .container {
-        width: 920px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
-
-/* SCREEN SIZE LESS THAN 767PX */
-@media only screen and (max-width: 767px) {
-    .container {
-        width: 767px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
-
-/* Small phone screen sizes, from 0 to 480px */
-@media only screen and (max-width: 480px) {
-    .container {
-        width: 480px;
-    }
-    #streaming {
-        width: 480px;
-    }
-
-    .venue span {
-        display: inline;
-        width: auto;
-    }
-}
-
 /* iPhone X Landscape */
-@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
-    .container {
-        width: 812px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {}
 
-@media only screen and (min-device-width : 320) and (max-device-width : 568) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
-    .container {
-        width: 568px;
-    }
-    #streaming {
-        width: 500px;
-    }
-}
+@media only screen and (min-width: 320px) {}
 
-@media only screen and (max-width: 390px) {
-    .container {
-        width: 390x;
-    }
+@media only screen and (min-width: 375px) {}
 
-    #streaming {
-        width: 390px;
-    }
-}
+@media only screen and (min-width: 480px) {}
 
-@media only screen and (max-width: 320px) {
-    .container {
-        width: 320px;
-    }
-    #streaming {
-        width: 320px;
-    }
-}
+
+@media only screen and (min-width: 767px) {}
+
+
+@media only screen and (min-width: 920px) {}
+
+
+@media only screen and (min-width: 1024px) {}
+
+@media only screen and (min-width: 1079px) {}
+
+@media only screen and (min-width: 1200px) {}

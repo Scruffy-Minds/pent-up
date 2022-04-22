@@ -13,6 +13,11 @@ p {
     margin: 15px;
 }
 
+/* IDs */
+#streaming {
+    width: 375px;
+}
+
 /* Classes */
 .buttons {
     font-size: 1.1em;
@@ -47,3 +52,50 @@ p {
     overflow: hidden;
     top: -10px;
 }
+
+/* iPhone X Landscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+    #streaming {
+        width: 600px !important;
+    }
+}
+
+/* Small phone screen sizes, from 0 to 320px */
+@media only screen and (min-width: 320px) {
+}
+
+@media only screen and (min-width: 375px) {
+
+}
+
+/* Small phone screen sizes, from 0 to 480px */
+@media only screen and (min-width: 480px) {
+        #streaming {
+            width: 100%;
+        }
+}
+
+@media only screen and (min-width: 600px) {
+    #streaming {
+        width: 600px;
+    }
+}
+
+/* SCREEN SIZE MORE THAN 767PX */
+@media only screen and (min-width: 767px) {
+
+}
+
+
+/* SCREEN SIZE MORE THAN 920PX */
+@media only screen and (min-width: 920px) {}
+
+
+/* SCREEN SIZE MORE THAN 1024PX */
+@media only screen and (min-width: 1024px) {}
+
+/* SCREEN SIZE MORE THAN 1080PX */
+@media only screen and (min-width: 1079px) {}
+
+/* SCREEN SIZE MORE THAN 1080PX */
+@media only screen and (min-width: 1200px) {}
