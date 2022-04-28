@@ -5,15 +5,18 @@
 
     <div class="container">
 
-        <div class="row space-around">
-            <a href="/" target="_blank">
-                <img class="pentup-logo" src="/images/pent_up_logo_transparent.png" alt="Pent Up!">
+        <div class="row jc-space-around">
+            <a href="/">
+                <picture>
+                    <source srcset="/images/pent_up_logo.webp" type="image/webp">
+                    <img class="pentup-logo" src="/images/pent_up_logo.png" alt="Pent Up!">
+                </picture>
             </a>
         </div>
 
 
 
-        <%- include('partials/copyright'); -%>
+        <%- include('partials/footer'); -%>
 
     </div>
 </body>
