@@ -97,7 +97,15 @@
             "alt": "Listen on iHeartRadio",
             "active": true
         },
-
+        {
+            "name": "TikTok",
+            "id": "tiktok",
+            "url": "https://www.tiktok.com/@pent_up_band",
+            "type": "social",
+            "target": "_blank",
+            "alt": "TikTok",
+            "active": true
+        },
         {
             "name": "Twitter",
             "id": "twitter",
