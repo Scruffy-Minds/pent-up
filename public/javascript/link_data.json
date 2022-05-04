@@ -45,6 +45,15 @@
             "active": false
         },
         {
+            "name": "Order our new CD!",
+            "id": "website",
+            "url": "http://Kunaki.com/Sales.asp?PID=PX00KLHHIV&PP=1",
+            "type": "website",
+            "target": "_blank",
+            "alt": "Order Pretty Good on CD",
+            "active": true
+        },
+        {
             "name": "Upcoming Show Dates",
             "id": "upcomingdates",
             "url": "/dates",
