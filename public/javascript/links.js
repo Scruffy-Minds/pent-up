@@ -37,5 +37,3 @@ if (d.getElementById('streaming').offsetWidth >= 550) {
     third.remove('hidden');
     third.add('primary');
 }
-
-d.querySelector('.news').innerHTML = `<span>New EP drops on 5/05! Pre-save "Pretty Good" on Spotify <a href="https://distrokid.com/hyperfollow/pentup3/pretty-good" target="_blank"><foo style="text-decoration: underline; font-weight: 700;">here</foo></a>!</span>`;
