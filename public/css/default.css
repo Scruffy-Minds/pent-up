@@ -165,6 +165,13 @@ body {
     z-index: 0;
 }
 
+.pentup-logo-text {
+    position: relative;
+    margin: 10px;
+    width: 320px;
+    z-index: 0;
+}
+
 .social-icon {
     height: 45px;
     cursor: pointer;
