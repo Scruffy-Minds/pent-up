@@ -157,7 +157,8 @@ picture {
 }
 
 .pentup-logo {
-    height: 200px;
+    width: 80% !important;
+    height: auto;
 }
 
 .right {
@@ -210,10 +211,6 @@ picture {
         padding: 20px;
     }
 
-    .pentup-logo {
-        height: 240px !important;
-    }
-
     .right {
         width: 57%;
         margin-bottom: auto;
@@ -226,7 +223,7 @@ picture {
 
 @media only screen and (min-width: 480px) {
     .pentup-logo {
-        height: 300px;
+        width: 100% !important;
     }
 }
 
@@ -248,10 +245,6 @@ picture {
 
     .page {
         padding: 20px;
-    }
-
-    .pentup-logo {
-        height: 250px;
     }
 
     .right {
