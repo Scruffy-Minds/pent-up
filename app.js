@@ -14,9 +14,9 @@ const redirectSSL = require('redirect-ssl')
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-// app.use(redirectSSL.create({
-//     exclude: ['localhost:3786']
-// }));
+app.use(redirectSSL.create({
+    exclude: ['localhost:3786']
+}));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -67,6 +67,16 @@ app.get('/dates', (req, res) => {
         title: title,
         script: 'dates.js',
         styles: 'dates.css',
+        sites: linkData.sites
+    });
+});
+
+app.get('/news', (req, res) => {
+    const title = `Pent Up! | What's New?!`;
+    res.render('news', {
+        title: title,
+        script: 'news.js',
+        styles: 'news.css',
         sites: linkData.sites
     });
 });
