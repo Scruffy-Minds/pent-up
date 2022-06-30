@@ -103,8 +103,8 @@ function getShowInfo() {
             }
             
             const allDates = res.sort(compare);
-            const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date());
-            const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date());
+            const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date()-1);
+            const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date()-1);
 
             populateDates(currentDates, 'current-shows');
             populateDates(pastDates.reverse(), 'past-shows');

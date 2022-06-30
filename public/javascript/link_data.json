@@ -188,5 +188,13 @@
             "active": true
         }
     ],
-    "news": "Pretty Good [EP] out now on all major streaming services!"
+    "news": "Pretty Good [EP] out now on all major streaming services!",
+    "menuItems": [
+        {"about": "/about"},
+        {"news": "/news"},
+        {"Shows": "/dates"},
+        {"Music": "/music"},
+        {"Links": "/links"},
+        {"Contact": "/contact"}
+    ]
 }
