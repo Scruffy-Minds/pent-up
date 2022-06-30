@@ -13,9 +13,9 @@ const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
 const linkData = require('./public/javascript/link_data.json');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost:3786']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -25,6 +25,10 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     res.redirect('/qr');
+});
+
+app.get('/tickets', (req, res) => {
+    res.redirect(`${linkData.tickets}`);
 });
 
 app.get('/qr', (req, res) => {
