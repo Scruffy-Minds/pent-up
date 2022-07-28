@@ -143,6 +143,8 @@ function populateDates(data, target) {
     if (data.length > 0) {
         data.forEach((v) => {
             const dt = new Date(v.start.datetime);
+            console.log(v.status);
+            if (v.status === 'cancelled') return;
             const info = {
                 eventId: v.id,
                 date: `${dt.getMonth()+1}-${dt.getDate().toString().padStart(2, "0")}-${dt.getFullYear().toString().slice(-2)}`,
