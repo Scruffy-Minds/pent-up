@@ -31,6 +31,10 @@ app.get('/tickets', (req, res) => {
     res.redirect(`${linkData.tickets}`);
 });
 
+app.get('/release', (req, res) => {
+    res.redirect(`${linkData.release}`);
+});
+
 app.get('/qr', (req, res) => {
     const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
     res.render('qr', {

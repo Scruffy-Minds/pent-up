@@ -51,6 +51,24 @@
             "type": "website",
             "target": "_blank",
             "alt": "Order Pretty Good on CD",
+            "active": false
+        },
+        {
+            "name": "Pre-Save on Spotify",
+            "id": "website",
+            "url": "https://distrokid.com/hyperfollow/pentup3/the-end-3",
+            "type": "website",
+            "target": "_blank",
+            "alt": "Pre-Save on Spotify!",
+            "active": true
+        },
+        {
+            "name": "Pre-Order on Bandcamp",
+            "id": "website",
+            "url": "https://pentup-rock.bandcamp.com/album/the-end-single",
+            "type": "website",
+            "target": "_blank",
+            "alt": "Pre-Order on Bandcamp!",
             "active": true
         },
         {
@@ -188,6 +206,7 @@
             "active": true
         }
     ],
-    "news": "Pretty Good [EP] out now on all major streaming services!",
-    "tickets": "https://checkout.square.site/buy/66QSAH4ZRQMEYFEVK3L5MWCC"
+    "news": "Brand-new single dropping on 10/10, pre-save/pre-order now!",
+    "tickets": "https://checkout.square.site/buy/66QSAH4ZRQMEYFEVK3L5MWCC",
+    "release": "https://distrokid.com/hyperfollow/pentup3/the-end-3"
 }
