@@ -31,12 +31,12 @@ app.get('/tickets', (req, res) => {
     res.redirect(`${linkData.tickets}`);
 });
 
-app.get('/release', (req, res) => {
+app.get(['/release', '/newrelease', '/newsingle'], (req, res) => {
     res.redirect(`${linkData.release}`);
 });
 
-app.get('/qr', (req, res) => {
-    const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
+app.get(['/qr', '/links'], (req, res) => {
+    const title = `Pent Up! | Pent Up! for City Counsel!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',
