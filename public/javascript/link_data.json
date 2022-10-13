@@ -63,6 +63,15 @@
             "active": true
         },
         {
+            "name": "Bandsintown",
+            "id": "bandsintown",
+            "url": "https://bnds.us/8v0h0w",
+            "type": "website",
+            "target": "_blank",
+            "alt": "Bandsintown",
+            "active": true
+        },
+        {
             "name": "Bandcamp",
             "id": "bandcamp",
             "url": "https://pentup-rock.bandcamp.com/",
