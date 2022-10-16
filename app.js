@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     // res.redirect('/qr');
-    const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
+    const title = `Pent Up! | Driving rhythms with punk energy and reckless abandon`;
     res.render('home', {
         title: title,
         script: 'home.js',
@@ -42,7 +42,7 @@ app.get('/qr', (req, res) => {
 });
 
 app.get('/links', (req, res) => {
-    const title = `Pent Up! | Post-Pop Indie Emo Punk Rock!`;
+    const title = `Pent Up! | Driving rhythms with punk energy and reckless abandon`;
     res.render('links', {
         title: title,
         script: 'links.js',
