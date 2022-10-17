@@ -97,6 +97,7 @@ function getShowInfo() {
     fetch('api/dates')
         .then(res => res.json())
         .then(res => {
+            
             function compare(a, b) {
                 if (a.start.datetime < b.start.datetime) return -1;
                 else return 1;
@@ -143,7 +144,6 @@ function populateDates(data, target) {
     if (data.length > 0) {
         data.forEach((v) => {
             const dt = new Date(v.start.datetime);
-            console.log(v.status);
             if (v.status === 'cancelled') return;
             const info = {
                 eventId: v.id,
@@ -169,7 +169,7 @@ function populateDates(data, target) {
         }); 
         d.getElementById(target).innerHTML = dateTiles;
     } else {
-        dateTiles = dateTiles + '<span class="noshows">\&mdash;No shows to display\&mdash;</span>';
+        dateTiles = dateTiles + `<span class="noshows">\&mdash;No dates booked at present\&mdash;</span>`;
         d.getElementById(target).innerHTML = dateTiles;
     }
 }

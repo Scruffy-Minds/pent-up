@@ -9,10 +9,10 @@ function toggleHidden(element) {
 d.querySelector('.more').addEventListener('click', () => {
     const streamers = Array.from(d.querySelectorAll('.listen-btn'));
     if (store.streamersExpanded === true) {
-        d.querySelector('.more').innerHTML = 'Tap here for more streaming services';
+        d.querySelector('.more').innerHTML = '<span class="taphere">Tap here</span> to show more streaming services';
         store.streamersExpanded = false;
     } else {
-        d.querySelector('.more').innerHTML = 'Tap here to show fewer streaming services';
+        d.querySelector('.more').innerHTML = '<span class="taphere">Tap here</span> to show fewer streaming services';
         store.streamersExpanded = true;
     }
         streamers.forEach((v, i, a) => {

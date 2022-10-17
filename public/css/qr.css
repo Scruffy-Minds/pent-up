@@ -38,7 +38,7 @@ p {
 .more {
     cursor: pointer;
     display: block;
-    font-size: .75em;
+    font-size: .80em;
     margin-top: 5px;
     text-shadow: 1px 1px 5px #000;
 }
@@ -51,6 +51,11 @@ p {
     width: 310px;
     overflow: hidden;
     top: -10px;
+}
+
+.taphere {
+    text-decoration: underline;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.30);
 }
 
 /* iPhone X Landscape */
