@@ -114,6 +114,11 @@ app.post('/subscribe', (req, res) => {
     });
 });
 
+app.get('/stream/:service', (req, res) => {
+    const service = linkData.sites.filter(x => x.id === req.params.service);
+    res.redirect(service[0].url);
+});
+
 app.listen(port, function () {
     const startTime = new Date();
     const options = {
