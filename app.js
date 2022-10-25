@@ -114,9 +114,13 @@ app.post('/subscribe', (req, res) => {
     });
 });
 
-app.get('/stream/:service', (req, res) => {
-    const service = linkData.sites.filter(x => x.id === req.params.service);
-    res.redirect(service[0].url);
+app.get(['/stream/:platform', '/social/:platform'], (req, res) => {
+    const platform = linkData.sites.filter(x => x.id === req.params.platform);
+    platform.length === 0 ? res.redirect('/') : res.redirect(platform[0].url);
+});
+
+app.get('/*', (req, res) => {
+    res.redirect('/');
 });
 
 app.listen(port, function () {
