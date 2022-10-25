@@ -84,8 +84,18 @@ app.get('/news', (req, res) => {
 app.get('/api/dates', async (req, res) => {
     const apiCall = (type) => `https://api.songkick.com/api/3.0/artists/10191154/${type}.json?apikey=${process.env.SK_API}`;
     try {
-    Promise.allSettled([fetch(apiCall('calendar')).then(data => data.json()), fetch(apiCall('gigography')).then(data => data.json())])
-        .then(data => res.send(data[0].value.resultsPage.results.event.concat(data[1].value.resultsPage.results.event)));
+        Promise.allSettled([fetch(apiCall('calendar'))
+                .then(data => data.json()), fetch(apiCall('gigography'))
+                .then(data => data.json())
+            ])
+            .then(data => {
+
+                if (data[0].value.resultsPage.totalEntries !== 0) {
+                    res.send(data[0].value.resultsPage.results.event.concat(data[1].value.resultsPage.results.event));
+                } else {
+                    res.send(data[1].value.resultsPage.results.event);
+                }
+            });
     } catch (err) {
         console.log('error: ', err);
     }

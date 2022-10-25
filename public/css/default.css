@@ -160,17 +160,17 @@ body {
 
 .pentup-logo {
     position: relative;
-    margin: 10px;
-    width: 225px;
+    margin: 25px 10px 10px 10px;
+    width: 250px;
     z-index: 0;
 }
 
-.pentup-logo-text {
+/* .pentup-logo-text {
     position: relative;
     margin: 10px;
     width: 250px;
     z-index: 0;
-}
+} */
 
 .social-icon {
     height: 45px;
