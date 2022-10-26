@@ -117,10 +117,6 @@ app.get('/tickets', (req, res) => {
     res.redirect(`${linkData.tickets}`);
 });
 
-app.get('/*', (req, res) => {
-    res.redirect('/');
-});
-
 app.post('/subscribe', (req, res) => {
     const options = {
         url: `https://${process.env.MC_INSTANCE}.api.mailchimp.com/3.0/lists/${process.env.MC_LIST_ID}`,
@@ -178,6 +174,10 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
     } catch (err) {
         console.log('error: ', err);
     }
+});
+
+app.get('/*', (req, res) => {
+    res.redirect('/');
 });
 
 app.listen(port, function () {
