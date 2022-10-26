@@ -293,7 +293,8 @@ body {
 
 .menubar {
     color: #eee;
-    display: inline-block;
+    /* display: inline-block; */
+    display: none !important;
     margin-bottom: 10px;
 }
 
@@ -374,11 +375,21 @@ body {
 @media only screen and (min-width: 480px) {}
 
 /* SCREEN SIZE LESS THAN 767PX */
-@media only screen and (min-width: 767px) {}
+@media only screen and (min-width: 767px) {
+    #mobile-menu {
+        display: none;
+    }
+    .menubar {
+        /* color: #eee; */
+        display: inline-block !important;
+        /* margin-bottom: 10px; */
+    }
+}
 
 
 /* SCREEN SIZE LESS THAN 920PX */
 @media only screen and (min-width: 920px) {
+
     #footer {
         flex-direction: row;
         padding: 0 25px;

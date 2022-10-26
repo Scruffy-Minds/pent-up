@@ -192,9 +192,9 @@
     "menuItems": [
         {"about": "/about"},
         {"news": "/news"},
-        {"Shows": "/dates"},
-        {"Music": "/music"},
-        {"Links": "/links"},
-        {"Contact": "/contact"}
+        {"shows": "/dates"},
+        {"music": "/music"},
+        {"links": "/links"},
+        {"contact": "/contact"}
     ]
 }

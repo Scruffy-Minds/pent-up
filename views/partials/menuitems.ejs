@@ -1,0 +1,4 @@
+<ul><% linkData.menuItems.forEach((v, i, a) => { %><% function capitalizeFirstLetter(string) { return string.charAt(0).toUpperCase() + string.slice(1);} %>
+                <%-`<li><a href="${Object.values(v)[0]}">${capitalizeFirstLetter(String(Object.keys(v)))}</a></li>`%><%})%>
+        </ul>
+

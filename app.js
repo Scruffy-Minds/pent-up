@@ -31,8 +31,10 @@ app.get('/', (req, res) => {
         title: title,
         script: 'home.js',
         styles: 'home.css',
-        sites: linkData.sites,
-        news: linkData.news
+        linkData: linkData
+        // sites: linkData.sites,
+        // news: linkData.news,
+        // menu: linkData.menuItems
     });
 });
 
@@ -47,8 +49,7 @@ app.get('/links', (req, res) => {
         title: title,
         script: 'links.js',
         styles: 'links.css',
-        sites: linkData.sites,
-        news: linkData.news
+        linkData: linkData
     });
 });
 
@@ -57,7 +58,7 @@ app.get('/press', (req, res) => {
     res.render('press', {
         title: title,
         styles: 'press.css',
-        sites: linkData.sites
+        linkData: linkData
     });
 });
 
@@ -67,7 +68,7 @@ app.get('/dates', (req, res) => {
         title: title,
         script: 'dates.js',
         styles: 'dates.css',
-        sites: linkData.sites
+        linkData: linkData
     });
 });
 
@@ -77,7 +78,7 @@ app.get('/news', (req, res) => {
         title: title,
         script: 'news.js',
         styles: 'news.css',
-        sites: linkData.sites
+        linkData: linkData
     });
 });
 
