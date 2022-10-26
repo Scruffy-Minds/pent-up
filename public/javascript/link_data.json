@@ -51,7 +51,7 @@
             "type": "website",
             "target": "_blank",
             "alt": "Order Pretty Good on CD",
-            "active": true
+            "active": false
         },
         {
             "name": "Upcoming Show Dates",

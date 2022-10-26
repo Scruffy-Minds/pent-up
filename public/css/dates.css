@@ -130,7 +130,9 @@ hr {
 }
 
 .noshows {
-    padding: 25px auto !important;
+    display: block;
+    margin-top: 15px !important;
+    font-size: 1.2em;
 }
 
 .sk-link {

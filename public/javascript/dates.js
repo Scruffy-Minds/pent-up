@@ -97,7 +97,6 @@ function getShowInfo() {
     fetch('api/dates')
         .then(res => res.json())
         .then(res => {
-
             function compare(a, b) {
                 if (a.start.datetime < b.start.datetime) return -1;
                 else return 1;
