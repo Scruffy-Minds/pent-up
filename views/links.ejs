@@ -3,23 +3,17 @@
 <%- include('partials/head'); -%>
 <body>
 
+    <%- include('partials/mobile-menu'); -%>
     <div class="container">
 
-        <div class="row jc-space-around">
-            <a href="/">
-                <picture>
-                    <source srcset="/images/pent_up_logo.webp" type="image/webp">
-                    <img class="pentup-logo" src="/images/pent_up_logo.png" alt="Pent Up!">
-                </picture>
-            </a>
-        </div>
-
+        <%- include('partials/header-logo'); -%>
+        <%- include('partials/menubar'); -%>
         <div class="news row jc-center">
-            <span><%= news %></span>
+            <span><%= linkData.news %></span>
         </div>
 
         <div id="streaming" class="row jc-center">
-            <%const streamers = sites.filter(x => x.type === 'streaming'); streamers.forEach((v, i, a) => { if(v.active === true) { const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
+            <%const streamers = linkData.sites.filter(x => x.type === 'streaming'); streamers.forEach((v, i, a) => { if(v.active === true) { const primary = (v.id === 'applemusic' || v.id === 'spotify') ? ' primary' : ' hidden';%>
             <%-
             `<a href="${v.url}" target="${v.target}">
                 <picture>
@@ -34,7 +28,7 @@
         </div>
 
         <div id="buttons" class="buttons">
-            <%const websites = sites.filter(x => x.type === 'website'); websites.forEach((v, i, a) => { if(v.active === true) {%>
+            <%const websites = linkData.sites.filter(x => x.type === 'website'); websites.forEach((v, i, a) => { if(v.active === true) {%>
             <%- `<a href="${v.url}" target="${v.target}"><div class="bkg-glass glow button" id="${v.id}"><span>${v.name}</span></div></a>`%><%}%><%})%>
         
         </div>
