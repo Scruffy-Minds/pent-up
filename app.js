@@ -1,4 +1,4 @@
-const port = process.env.PORT || 3786
+const port = process.env.PORT || 3786;
 const siteName = 'Pent Up!';
 
 require('dotenv').config();
@@ -10,54 +10,36 @@ const ejs = require('ejs');
 // const nodemailer = require('nodemailer');
 const app = express();
 const fetch = require('node-fetch');
-const redirectSSL = require('redirect-ssl')
+const redirectSSL = require('redirect-ssl');
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-// app.use(redirectSSL.create({
-//     exclude: ['localhost:3786']
-// }));
+app.use(redirectSSL.create({
+    exclude: ['localhost:3786']
+}));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
-app.use(express.json())
+app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    // res.redirect('/qr');
     const title = `Pent Up! | Driving rhythms with punk energy and reckless abandon`;
     res.render('home', {
         title: title,
         script: 'home.js',
         styles: 'home.css',
         linkData: linkData
-        // sites: linkData.sites,
-        // news: linkData.news,
-        // menu: linkData.menuItems
     });
 });
 
-
-app.get('/qr', (req, res) => {
-    res.redirect('/links');
-});
-
-app.get('/links', (req, res) => {
-    const title = `Pent Up! | Driving rhythms with punk energy and reckless abandon`;
-    res.render('links', {
+app.get('/about', (req, res) => {
+    const title = `Pent Up! | Everything you never wanted to know about Pent Up!`;
+    res.render('about', {
         title: title,
-        script: 'links.js',
-        styles: 'links.css',
-        linkData: linkData
-    });
-});
-
-app.get('/press', (req, res) => {
-    const title = `Pent Up! | Press Kit`;
-    res.render('press', {
-        title: title,
-        styles: 'press.css',
+        script: 'about.js',
+        styles: 'about.css',
         linkData: linkData
     });
 });
@@ -72,6 +54,26 @@ app.get('/dates', (req, res) => {
     });
 });
 
+app.get('/links', (req, res) => {
+    const title = `Pent Up! | Where to find Pent Up! on the web`;
+    res.render('links', {
+        title: title,
+        script: 'links.js',
+        styles: 'links.css',
+        linkData: linkData
+    });
+});
+
+app.get('/music', (req, res) => {
+    const title = `Pent Up! | All about the music`;
+    res.render('music', {
+        title: title,
+        script: 'music.js',
+        styles: 'music.css',
+        linkData: linkData
+    });
+});
+
 app.get('/news', (req, res) => {
     const title = `Pent Up! | What's New?!`;
     res.render('news', {
@@ -79,6 +81,39 @@ app.get('/news', (req, res) => {
         script: 'news.js',
         styles: 'news.css',
         linkData: linkData
+    });
+});
+
+app.get('/press', (req, res) => {
+    const title = `Pent Up! | Press Kit`;
+    res.render('press', {
+        title: title,
+        styles: 'press.css',
+        linkData: linkData
+    });
+});
+
+app.get('/qr', (req, res) => {
+    res.redirect('/links');
+});
+
+app.post('/subscribe', (req, res) => {
+    const options = {
+        url: `https://${process.env.MC_INSTANCE}.api.mailchimp.com/3.0/lists/${process.env.MC_LIST_ID}`,
+        method: `POST`,
+        headers: {
+            Authorization: `auth ${process.env.MC_API_KEY}`
+        },
+        body: JSON.stringify({
+            members: [{
+                email_address: req.body.email,
+                status: 'subscribed'
+            }]
+        })
+    };
+    request(options, (err, response, body) => {
+        if (err) res.sendStatus(400);
+        else(response.statusCode === 200) ? res.sendStatus(200) : res.sendStatus(418);
     });
 });
 
@@ -115,21 +150,6 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
     } catch (err) {
         console.log('error: ', err);
     }
-});
-
-app.post('/subscribe', (req, res) => {
-    const options = {
-        url: `https://${process.env.MC_INSTANCE}.api.mailchimp.com/3.0/lists/${process.env.MC_LIST_ID}`,
-        method: `POST`,
-        headers: {
-            Authorization: `auth ${process.env.MC_API_KEY}`
-        },
-        body: JSON.stringify({members: [{email_address: req.body.email, status: 'subscribed'}]})
-    }
-    request(options, (err, response, body) => {
-        if (err) res.sendStatus(400);
-        else (response.statusCode === 200) ? res.sendStatus(200) : res.sendStatus(418);
-    });
 });
 
 app.listen(port, function () {

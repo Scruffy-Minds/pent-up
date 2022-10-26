@@ -195,6 +195,6 @@
         {"shows": "/dates"},
         {"music": "/music"},
         {"links": "/links"},
-        {"contact": "/contact"}
+        {"contact": "mailto:info@pentup.band?subject=You have an owl?!"}
     ]
 }
