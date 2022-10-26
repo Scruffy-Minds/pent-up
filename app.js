@@ -14,9 +14,9 @@ const redirectSSL = require('redirect-ssl');
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-// app.use(redirectSSL.create({
-//     exclude: ['localhost:3786']
-// }));
+app.use(redirectSSL.create({
+    exclude: ['localhost:3786']
+}));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -179,7 +179,6 @@ app.get('/api/venue-details/:venueId', async (req, res) => {
 app.get('/*', (req, res) => {
     res.redirect('/');
 });
-
 app.listen(port, function () {
     const startTime = new Date();
     const options = {
