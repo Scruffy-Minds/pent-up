@@ -45,7 +45,7 @@
             "active": false
         },
         {
-            "name": "Order our new CD!",
+            "name": "Order 'Pretty Good' on CD",
             "id": "website",
             "url": "http://Kunaki.com/Sales.asp?PID=PX00KLHHIV&PP=1",
             "type": "website",
@@ -60,6 +60,15 @@
             "type": "website",
             "target": "_self",
             "alt": "Upcoming Dates",
+            "active": true
+        },
+        {
+            "name": "Bandsintown",
+            "id": "bandsintown",
+            "url": "https://bnds.us/8v0h0w",
+            "type": "website",
+            "target": "_blank",
+            "alt": "Bandsintown",
             "active": true
         },
         {
@@ -188,7 +197,9 @@
             "active": true
         }
     ],
-    "news": "Pretty Good [EP] out now on all major streaming services!",
+    "news": "Brand-new single THE END available everywhere now!",
+    "tickets": "https://wl.seetickets.us/event/Tantric/479497?afflky=ElCorazon",
+    "release": "https://distrokid.com/hyperfollow/pentup3/the-end-3",
     "menuItems": [
         {"about": "/about"},
         {"news": "/news"},

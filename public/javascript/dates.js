@@ -97,14 +97,15 @@ function getShowInfo() {
     fetch('api/dates')
         .then(res => res.json())
         .then(res => {
+
             function compare(a, b) {
                 if (a.start.datetime < b.start.datetime) return -1;
                 else return 1;
             }
-            
+
             const allDates = res.sort(compare);
-            const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date()-1);
-            const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date()-1);
+            const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date());
+            const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date());
 
             populateDates(currentDates, 'current-shows');
             populateDates(pastDates.reverse(), 'past-shows');
@@ -138,11 +139,12 @@ function populateDates(data, target) {
                 <span>${(target === 'past-shows' ? 'Past Shows' : 'Current shows')}</span>
                 
             </div>`;
-        dateTiles = dateTiles + pastShows + header;
+    dateTiles = dateTiles + pastShows + header;
 
     if (data.length > 0) {
         data.forEach((v) => {
             const dt = new Date(v.start.datetime);
+            if (v.status === 'cancelled') return;
             const info = {
                 eventId: v.id,
                 date: `${dt.getMonth()+1}-${dt.getDate().toString().padStart(2, "0")}-${dt.getFullYear().toString().slice(-2)}`,
@@ -164,10 +166,10 @@ function populateDates(data, target) {
                 bands: v.performance.map((v) => v.displayName.replace(/ /g, '\u00a0'))
             };
             dateTiles = dateTiles + generateTile(info);
-        }); 
+        });
         d.getElementById(target).innerHTML = dateTiles;
     } else {
-        dateTiles = dateTiles + '<span class="noshows">\&mdash;No shows to display\&mdash;</span>';
+        dateTiles = dateTiles + `<span class="noshows">\&mdash;No dates booked at present\&mdash;</span>`;
         d.getElementById(target).innerHTML = dateTiles;
     }
 }
