@@ -14,9 +14,9 @@ const redirectSSL = require('redirect-ssl');
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost:3786']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -93,8 +93,32 @@ app.get('/press', (req, res) => {
     });
 });
 
-app.get('/qr', (req, res) => {
-    res.redirect('/links');
+app.get(['/qr', '/links'], (req, res) => {
+    const title = `Pent Up! | Pent Up! for City Counsel!`;
+    res.render('qr', {
+        title: title,
+        script: 'qr.js',
+        styles: 'qr.css',
+        sites: linkData.sites,
+        news: linkData.news
+    });
+});
+
+app.get(['/release', '/newrelease', '/newsingle'], (req, res) => {
+    res.redirect(`${linkData.release}`);
+});
+
+app.get(['/stream/:platform', '/social/:platform'], (req, res) => {
+    const platform = linkData.sites.filter(x => x.id === req.params.platform);
+    platform.length === 0 ? res.redirect('/') : res.redirect(platform[0].url);
+});
+
+app.get('/tickets', (req, res) => {
+    res.redirect(`${linkData.tickets}`);
+});
+
+app.get('/*', (req, res) => {
+    res.redirect('/');
 });
 
 app.post('/subscribe', (req, res) => {
@@ -127,8 +151,12 @@ app.get('/api/dates', async (req, res) => {
             .then(data => {
 
                 if (data[0].value.resultsPage.totalEntries !== 0) {
+                    console.log('has both');
+                    
                     res.send(data[0].value.resultsPage.results.event.concat(data[1].value.resultsPage.results.event));
                 } else {
+                    console.log('has none');
+                    
                     res.send(data[1].value.resultsPage.results.event);
                 }
             });
