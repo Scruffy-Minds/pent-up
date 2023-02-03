@@ -13,9 +13,9 @@ const fetch = require('node-fetch');
 const redirectSSL = require('redirect-ssl')
 const linkData = require('./public/javascript/link_data.json');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost:3786']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -36,7 +36,7 @@ app.get(['/release', '/newrelease', '/newsingle'], (req, res) => {
 });
 
 app.get(['/qr', '/links'], (req, res) => {
-    const title = `Pent Up! | Pent Up! for City Counsel!`;
+    const title = `Pent Up! | Pent Up! for City Council!`;
     res.render('qr', {
         title: title,
         script: 'qr.js',

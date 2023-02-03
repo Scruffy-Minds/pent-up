@@ -103,9 +103,14 @@ hr {
 }
 
 .event-tile {
-    border-color: #bfc3cc #d2d5db #e5e7ea;
+    /* border-color: #bfc3cc #000 #e5e7ea #000; */
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid;
-    margin: 2px auto 10px;
+    border-top-color: #bfc3cc;
+    border-bottom-color: #7b7e85;
+    box-shadow: -20px -20px 75px 10px #2538473c;
+    border-width: .5px 0 .5px 0;
+    margin: 2px auto 20px;
     padding: 0.5% 1.5%;
     text-shadow: 0 0 0 #000;
     width: 100%;
