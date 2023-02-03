@@ -116,7 +116,7 @@
     </div>
 
     <div id="socials" class="row space-around icons">
-        <%const socials = sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
+        <%const socials = linkData.sites.filter(x => x.type === 'social'); socials.forEach((v, i, a) => {%>
         <%-` <a href="${v.url}" target="${v.target}" style="order: ${i};">
             <picture>
                 <source srcset="/images/icons/socials/${v.id}.webp" type="image/webp">

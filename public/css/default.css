@@ -160,10 +160,17 @@ body {
 
 .pentup-logo {
     position: relative;
-    margin: 10px;
-    width: 225px;
+    margin: 25px 10px 10px 10px;
+    width: 250px;
     z-index: 0;
 }
+
+/* .pentup-logo-text {
+    position: relative;
+    margin: 10px;
+    width: 250px;
+    z-index: 0;
+} */
 
 .social-icon {
     height: 45px;
@@ -183,6 +190,142 @@ body {
     outline: none !important;
     text-shadow: 0 0 0 #000;
     width: 30%;
+}
+
+#mobile-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    margin: 10px;
+    overflow: visible;
+    position: absolute;
+    z-index: 2;
+}
+
+#mobile-menu span,
+#mobile-menu span:before,
+#mobile-menu span:after {
+    background: #fff;
+    display: block;
+    height: 4px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+
+#mobile-menu span:before,
+#mobile-menu span:after {
+    content: "";
+}
+
+#mobile-menu span {
+    right: 0px;
+    top: 13px;
+    width: 27px;
+}
+
+#mobile-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 16px;
+}
+
+#mobile-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 20px;
+}
+
+#mobile-menu.close span {
+    transform: rotate(-45deg);
+    top: 13px;
+    width: 27px;
+}
+
+#mobile-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+}
+
+#mobile-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+}
+
+#menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+#menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#menu li {
+    list-style: none;
+}
+
+#menu a {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    display: block;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.menubar {
+    color: #eee;
+    /* display: inline-block; */
+    display: none !important;
+    margin-bottom: 10px;
+}
+
+.menubar li {
+    display: inline;
+}
+
+.menubar a {
+    border-bottom: 1px solid transparent;
+    color: #e6e6e6;
+    display: inline-block;
+    line-height: 18px;
+    margin: 1px 7px 0;
+    padding: 0 4px 2px 0;
+    text-decoration: none;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.menubar a:hover,
+.menubar a:active {
+    color: white;
+    border-bottom: 1px solid purple;
+}
+
+.menubar ul {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    list-style-type: none;
+    margin: auto;
+    overflow: hidden;
 }
 
 
@@ -232,11 +375,21 @@ body {
 @media only screen and (min-width: 480px) {}
 
 /* SCREEN SIZE LESS THAN 767PX */
-@media only screen and (min-width: 767px) {}
+@media only screen and (min-width: 767px) {
+    #mobile-menu {
+        display: none;
+    }
+    .menubar {
+        /* color: #eee; */
+        display: inline-block !important;
+        /* margin-bottom: 10px; */
+    }
+}
 
 
 /* SCREEN SIZE LESS THAN 920PX */
 @media only screen and (min-width: 920px) {
+
     #footer {
         flex-direction: row;
         padding: 0 25px;
@@ -319,3 +472,5 @@ body {
         width: 1200px;
     }
 }
+
+

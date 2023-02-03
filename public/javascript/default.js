@@ -4,7 +4,10 @@ const store = [{
     streamersExpanded: false
 }];
 
+const mobileMenu = document.getElementById('mobile-menu');
+const overlay = document.getElementById('menu');
 const newsletterSignupForm = document.getElementById('subscribe');
+
 if (newsletterSignupForm) newsletterSignupForm.addEventListener('submit', handleNewsletterSubscription);
 
 function handleNewsletterSubscription(event) {
@@ -35,3 +38,8 @@ function handleNewsletterSubscription(event) {
         clearField();
     }
 }
+
+mobileMenu.addEventListener('click', function () {
+    this.classList.toggle("close");
+    overlay.classList.toggle("overlay");
+});

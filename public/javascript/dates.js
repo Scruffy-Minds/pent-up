@@ -97,12 +97,11 @@ function getShowInfo() {
     fetch('api/dates')
         .then(res => res.json())
         .then(res => {
-            
             function compare(a, b) {
                 if (a.start.datetime < b.start.datetime) return -1;
                 else return 1;
             }
-            
+
             const allDates = res.sort(compare);
             const currentDates = allDates.filter(date => new Date(date.start.datetime) >= new Date());
             const pastDates = allDates.filter(date => new Date(date.start.datetime) < new Date());
@@ -139,7 +138,7 @@ function populateDates(data, target) {
                 <span>${(target === 'past-shows' ? '&mdash; PAST DATES &mdash;' : '&mdash; CURRENT DATES &mdash;')}</span>
                 
             </div>`;
-        dateTiles = dateTiles + pastShows + header;
+    dateTiles = dateTiles + pastShows + header;
 
     if (data.length > 0) {
         data.forEach((v) => {
@@ -166,7 +165,7 @@ function populateDates(data, target) {
                 bands: v.performance.map((v) => v.displayName.replace(/ /g, '\u00a0'))
             };
             dateTiles = dateTiles + generateTile(info);
-        }); 
+        });
         d.getElementById(target).innerHTML = dateTiles;
     } else {
         dateTiles = dateTiles + `<span class="noshows">\&mdash;No dates booked at present\&mdash;</span>`;
