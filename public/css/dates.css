@@ -5,7 +5,7 @@ hr {
     border: none;
     border-top: 8px dotted;
     color: #3c5b74;
-    margin: 35px;
+    margin: 25px;
     width: 55px;
 }
 
@@ -103,9 +103,13 @@ hr {
 }
 
 .event-tile {
-    border-color: #bfc3cc #d2d5db #e5e7ea;
+    background-color: rgba(0, 0, 0, 0);
     border: 1px solid;
-    margin: 2px auto 10px;
+    border-top-color: #bfc3cc;
+    border-bottom-color: #7b7e85;
+    box-shadow: 3px 30px 25px -18px #253847b3;
+    border-width: .5px 0 .5px 0;
+    margin: 2px auto 20px;
     padding: 0.5% 1.5%;
     text-shadow: 0 0 0 #000;
     width: 100%;
@@ -152,13 +156,9 @@ hr {
 }
 
 .title {
-    border-bottom: 2px solid;
-    border-right: 0;
-    border-top: 0;
-    border-left: 0;
-    border-image: radial-gradient(circle at center, #bbb, #111);
-    border-image-slice: 1;
-    margin-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    text-shadow: 1px 1px 12px #4d7696, 0 0 20px #496f8b, 0 0 25px #253847;
     width: 80%;
 }
 
