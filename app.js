@@ -14,9 +14,9 @@ const redirectSSL = require('redirect-ssl');
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-// app.use(redirectSSL.create({
-//     exclude: ['localhost:3786']
-// }));
+app.use(redirectSSL.create({
+    exclude: ['localhost:3786']
+}));
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
@@ -26,23 +26,29 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     const title = `Pent Up! | Driving rhythms with punk energy and reckless abandon`;
-    res.render('home', {
+    // res.render('home', {
+    //     title: title,
+    //     script: 'home.js',
+    //     styles: 'home.css',
+    //     linkData: linkData
+    // });
+    res.render('links', {
         title: title,
-        script: 'home.js',
-        styles: 'home.css',
+        script: 'links.js',
+        styles: 'links.css',
         linkData: linkData
     });
 });
 
-app.get('/about', (req, res) => {
-    const title = `Pent Up! | Everything you never wanted to know about Pent Up!`;
-    res.render('about', {
-        title: title,
-        script: 'about.js',
-        styles: 'about.css',
-        linkData: linkData
-    });
-});
+// app.get('/about', (req, res) => {
+//     const title = `Pent Up! | Everything you never wanted to know about Pent Up!`;
+//     res.render('about', {
+//         title: title,
+//         script: 'about.js',
+//         styles: 'about.css',
+//         linkData: linkData
+//     });
+// });
 
 app.get('/dates', (req, res) => {
     const title = `Pent Up! | Show Dates!`;
@@ -54,7 +60,7 @@ app.get('/dates', (req, res) => {
     });
 });
 
-app.get('/links', (req, res) => {
+app.get(['/qr', '/links'], (req, res) => {
     const title = `Pent Up! | Where to find Pent Up! on the web`;
     res.render('links', {
         title: title,
@@ -64,25 +70,25 @@ app.get('/links', (req, res) => {
     });
 });
 
-app.get('/music', (req, res) => {
-    const title = `Pent Up! | All about the music`;
-    res.render('music', {
-        title: title,
-        script: 'music.js',
-        styles: 'music.css',
-        linkData: linkData
-    });
-});
+// app.get('/music', (req, res) => {
+//     const title = `Pent Up! | All about the music`;
+//     res.render('music', {
+//         title: title,
+//         script: 'music.js',
+//         styles: 'music.css',
+//         linkData: linkData
+//     });
+// });
 
-app.get('/news', (req, res) => {
-    const title = `Pent Up! | What's New?!`;
-    res.render('news', {
-        title: title,
-        script: 'news.js',
-        styles: 'news.css',
-        linkData: linkData
-    });
-});
+// app.get('/news', (req, res) => {
+//     const title = `Pent Up! | What's New?!`;
+//     res.render('news', {
+//         title: title,
+//         script: 'news.js',
+//         styles: 'news.css',
+//         linkData: linkData
+//     });
+// });
 
 app.get('/press', (req, res) => {
     const title = `Pent Up! | Press Kit`;
@@ -93,16 +99,16 @@ app.get('/press', (req, res) => {
     });
 });
 
-app.get(['/qr', '/links'], (req, res) => {
-    const title = `Pent Up! | Pent Up! for City Council!`;
-    res.render('qr', {
-        title: title,
-        script: 'qr.js',
-        styles: 'qr.css',
-        sites: linkData.sites,
-        news: linkData.news
-    });
-});
+// app.get(['/qr', '/links'], (req, res) => {
+//     const title = `Pent Up! | Pent Up! for City Council!`;
+//     res.render('qr', {
+//         title: title,
+//         script: 'qr.js',
+//         styles: 'qr.css',
+//         sites: linkData.sites,
+//         news: linkData.news
+//     });
+// });
 
 app.get(['/release', '/newrelease', '/newsingle'], (req, res) => {
     res.redirect(`${linkData.release}`);
