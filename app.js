@@ -60,7 +60,7 @@ app.get('/dates', (req, res) => {
     });
 });
 
-app.get(['/qr', '/links'], (req, res) => {
+app.get('/links', (req, res) => {
     const title = `Pent Up! | Where to find Pent Up! on the web`;
     res.render('links', {
         title: title,
@@ -68,6 +68,11 @@ app.get(['/qr', '/links'], (req, res) => {
         styles: 'links.css',
         linkData: linkData
     });
+});
+
+app.get('/qr', (req, res) => {
+    // url used in QR codes, redirects to the current page we are pushing for landing
+    res.redirect('/links');
 });
 
 // app.get('/music', (req, res) => {
