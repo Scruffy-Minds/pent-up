@@ -10,13 +10,23 @@ const ejs = require('ejs');
 // const nodemailer = require('nodemailer');
 const app = express();
 const fetch = require('node-fetch');
-const redirectSSL = require('redirect-ssl');
+// const redirectSSL = require('redirect-ssl');
 const linkData = require('./public/javascript/link_data.json');
 const res = require('express/lib/response');
 
-app.use(redirectSSL.create({
-    exclude: ['localhost:3786']
-}));
+// app.use(redirectSSL.create({
+//     exclude: ['localhost:3786']
+// }));
+
+// Redirect http to https
+app.enable('trust proxy');
+app.use(function (request, response, next) {
+    if (process.env.NODE_ENV != 'development' && !request.secure) {
+        return response.redirect("https://" + request.headers.host + request.url);
+    }
+    next();
+});
+
 // app.use(bodyParser.urlencoded({
 //     extended: true
 // }));
